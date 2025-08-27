@@ -1,0 +1,173 @@
+# Watersheds
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+# What's a watershed? {#sec-watershed}
+
+Watersheds are fundamental units of the landscape that connect land, water, ecosystems, and people. The goal of this lab is for you to gain a comprehensive understanding of watersheds by building your own watershed model and exploring our local watershed. After completing these exercises, you should be able to explain what a watershed is, identify the key components, discuss the vulnerabilities of watersheds, especially those arising from human activities, and argue for the importance of maintaining healthy watersheds from both human and ecosystem perspectives.
+
+During this lab you will build a physical model of a watershed and use it to explore the landscape features and geomorphology of an area determines the movement of water. Then you will use a GIS tools to explore our local watershed.
+
+By the end of this lab, you will be able to:
+
+* Define and explain what a watershed is.
+* Identify key components of a watershed, including ridgelines, headwater streams, tributaries, and outlets.
+* use land form features to predict stream flow patterns and how pollutants travel through the system using your model.
+* Discuss vulnerabilities of watersheds, especially those linked to human activities such as land use change, pollution, and climate impacts.
+
+This will form a foundation for us to continue to develop your ability to evaluate and argue for the importance of healthy watersheds for both human well-being (e.g., clean water supply, flood control) and ecosystem health (e.g., biodiversity, nutrient cycling) as we explore our local watershed in more depth over the course of the semester.
+
+## Track a rain drop from your house.
+
+Navigate to the [rain-runner tool in your browser](https://river-runner.samlearner.com/). navigate to your home and drop a rain drop on your house.
+
+::: {.callout-tip title="Consider this"}
+
+Describe the path the rain drop takes and compare it to that of your lab partner.
+
+Then, together with your lab partner formulate a definition for the following key terms:
+
+* Watershed (drainage basin):
+* Drainage divide:
+
+:::
+
+## Build a watershed model
+
+Gather the following materials:
+
+* large aluminum roasting pan
+* masking tape
+* stack of newspapers
+* garbage bag
+* spray bottle filled with tap water
+* drink mixes
+* paper towels
+* colored permanent markers
+
+You are going to build a simple model of a portion of the Earth surface. You will use your spray bottle to simulate rainfall and to test how differences in landscape features form watersheds and drainage divides. 
+
+Crumble several pieces of newspaper into balls and/or create stacks of newspaper pieces and place them in your roasting pan. Use the masking tape to fix them in place. Cut open the trash bag and flatten out any wrinkles. Raise one side of your tray (e.g. with a big text book). Finally, cover the entire pan and its content with the plastic sheet - don't worry if you have some excess material outside of your tray.
+
+Congratulations - you've just built your first watershed! The plastic is the earth's surface and your newspaper shapes form landscape features.
+
+Together with your partner, identify key features on your watershed:
+
+* mountains/hills, ridge lines and valleys. 
+* rivers, streams (linear flow)
+* ponds, lakes (pooling water in low areas)
+* drainage divides (rain flows to one side or the other)
+
+Use the markers to indicate how you think water will flow on your plastic sheet using arrows. Predict the location of potential ponds and lakes.
+
+::: {.callout-tip title="Give it a try"}
+
+Once you are ready, test your predictions by making it rain using your spray bottle.
+
+Summarize your results by creating a sketch of your watershed:
+
+1. Outline the Topography
+    + Draw the main hills, ridges, and valleys you created.
+    + Use contour-like lines to show changes in elevation.
+2. Map the Flow of Water
+    + Draw arrows to indicate the direction of surface water flow.
+    + Show how small streams combine to form larger channels.
+3. Identify Water Bodies: Mark any areas where water pooled in your model (these represent lakes or ponds).
+4. Mark the Drainage Divide
+    + Identify the boundary/ridgeline separating one side of the watershed from another.
+    + Draw a dashed line along the divides.
+5. Label and Annotate Key Features: Headwaters (where streams begin). Tributaries, Main channel (largest stream), Outlet (where water leaves the watershed), Drainage divide, Lakes/ponds
+
+You can take a picture in addition to your sketch but being able to create a sketch is an important skill as it allows you to add annotations and highlight the features you think are important. Even if you do not consider yourself an artist, practice visualizing information using a sketch.
+
+Discuss how well your predictions match the actual simulation of rain.
+
+* What predictions held up? What was unexpected?
+* Where did most of the water flow first, and how did it collect into streams and rivers?
+* How does the shape of the land (topography) control the movement of water?
+* Did any “unexpected” features form (e.g., pooling in valleys, branching patterns)?
+
+:::
+
+## Determine anthropogenic effects
+
+Now that you’ve built your watershed model, it's time to investigate how human activities and natural processes can affect water quality.
+
+Pair up with another lab group and swap watersheds. Sprinkle or place the colored drink mixes to represent different sources of impact: farms using fertilizer, areas that might have exposed sediment or soil, and/or a point source of pollution (e.g. sewage pipe or factory outfalls).
+
+When finished, tell the other group what changes you made to their watershed and why you placed pollutants in those spots.
+
+::: {.callout-tip title="Consider this"}
+
+With your lab partner, look closely at the features that were added to *your* watershed. 
+Discuss and write down your predictions for what will happen during the next simulated “rainfall”. Make sure you are using your understanding of how water moves through your watershed, where water pools, and where there are drainage divides:
+
+* Where will pollutants and sediments travel?
+* Where might they pool or concentrate?
+* Which areas of the watershed will be most impacted?
+* How do drainage divides influence where pollutants go (or don’t go)?
+
+:::
+
+Explain your reasoning to the other lab group before testing it with the next “rainfall" and tracking where the drink mixes end up in the watershed.
+
+::: {.callout-tip title="Consider this"}
+
+Update your sketches to add the new landscape features and annotations describing the effect it has on the watershed.
+
+Add the new landscape features (fertilizer, sediment, point-source pollution) to your watershed sketch and include annotations showing how these features change the watershed and where pollutants move to.
+
+Present your watersheds to the other groups in the lab to get a broad idea of how features impact the movement of soil/sediment and pollutants. 
+
+Describe what you have learned about how sources of pollution and sediment in watershed impact the waterways. Avoid general answers like “it gets in the water” — trace the movement through the watershed.
+
+* Which tributaries are impacted first?
+* How do pollutants move downstream into larger streams?
+* Where might pollutants accumulate (e.g., lakes, ponds, slow-moving reaches)?
+* How do drainage divides influence where pollutants spread (or don’t spread)?
+
+Discuss how well our models represents the reality of the concept of watersheds and drainage divides with your partner and then summarize your discussion here. Consider what it captures well and what the limitations are.
+
+:::
+
+## Explore the Merrimack watershed
+
+In this activity, you will take a closer look at an actual watershed using GIS/mapping tools. This semester we will study streams and rivers in the Merrimack watershed. The goal is to develop skills exploring maps, and to practice exploring questions in a less structured, investigative way.
+
+You can access the [Stroud Water Research Center: Model my Watershed tool using this link](https://modelmywatershed.org/) or as posted on Canvas.
+
+Think of the watershed as nested basins, where smaller sub-watersheds are contained within larger ones. Here are the streams and tributaries we will re-visit throughout the semester.
+
+* Schoolhouse Brook is a headwater stream (1st order) that flows into Rand Brook, near the Crossing of Cressy Hill Road and Russel Station Road, Francestown (42.958314, -71.790332)
+* Rand Brook is a second order stream that flows ito the South Branch Piscataquog River near Russell Station Road/2nd Turnpike South (42.958892, -71.778077)
+* South Branch Piscataquog River meets the Middle Branch Piscataquog River at Gregg Mill Rd and Rt-13 in New Boston and flow into the Piscataquog right before Goffstown
+* The Piscataquog River flows into the Merrimack at Manchester.
+* The Merrimack River flows into the Atlantic Ocean at Newport.
+
+::: {.callout-tip title="Give it a try"}
+
+Once you have been shown how to use the mapping tool to delineate a watershed, pick three levels at which you want to compare drainage basins. Explore key characteristics and discuss your findings with your lab group (ProTip: Form an alliance with another lab group so you can have several laptops open with watersheds at different scales.)
+
+You will want to trace the entire path from Schoolhouse Brook to the Merrimack at Manchester and from there two Newport to get a broad overview. You can either start at Newport and move through increasingly smaller tributaries or follow the track of a rain drop.
+
+Remember that you can manipulate the layers being shown on your map using the Layers box:
+* Streams: Continental US Medium Resolution Stream Network is probably most appropriate
+* You can use the different Coverage Grids to explore change in land use and examine how terrain and einvrionmental conditions vary across the watershed: You can choose from different time points to look at Land Use/Cover (click on the little i next to the layer to see a legend). You can also look at the different soil types, elevation profiles, slope and patterns of precipitation and temperature
+* Basemaps: Topography and Satellite imagery will be most useful and give you complementary perspectives.
+
+Remember that you can always zoom out to a continental level view of North America to compare our watershed to the rest of the country to determine if the patterns you are seeing are typical for a region/the country.
+
+When you have delineated a watershed you can use the `Analyze` Tab to explore information on streams, land use, soil, terrain, climate, point sources, and estimated numbers of farm animals. Explore how these features change at different scale. Consider differences between order of magnitude (a larger watershed will have more streams) vs different patterns (do the distribution of stream order change?).
+
+Identify two key take-aways from your explorations that you find particularly interesting.
+
+:::
+

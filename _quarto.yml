@@ -1,0 +1,75 @@
+project:
+  type: book
+
+book:
+  title: "Labmanual General Biology II"
+  subtitle: "BI104 | Spring 2025 | Saint Anselm College"
+  author: "Shannon J O'Leary"
+  date: today
+  chapters:
+    - index.qmd
+    
+    - part: A_stream-characterization.qmd
+      chapters: 
+        - A01_watershed.qmd
+        # - A02_biomes.qmd
+        # - A03_biomes.qmd
+        # - A04_biomes.qmd
+
+    
+   # - part: B_stream-health-macroinverts.qmd
+      # chapters:
+      #   - B01_exp-design.qmd
+      #   - B02_methods.qmd
+      #   - B03_data-collection.qmd
+      #   - B04_data-analysis.qmd
+      #   - B05_results.qmd
+      #   - B06_report_with-answers.qmd
+        
+   # -  part: C_microplastics.qmd
+      # chapters:
+        # - C01_question.qmd
+        # - C02_generate.qmd
+        # - C03_collect.qmd
+        # - C04_analyze.qmd
+        # - C05_describe.qmd
+        # - C06_communicate.qmd
+
+   # -  part: D_set-up.qmd
+      # chapters:
+      #   - D01_experim-design.qmd
+      #   - D02_data-management.qmd
+      #   - D03_posit.qmd
+      #   - D04_descript-stats.qmd
+      #   - D05_inferent-stats.qmd
+      #   - D06_writing-report.qmd
+      #   - D07_poster-design.qmd
+
+   # -  part: Z_Appendix.qmd
+      # chapters:
+      #   - references.qmd
+
+# bibliography: references.bib
+
+format:
+  html:
+    theme: sandstone
+    toc: true
+    toc-depth: 2
+    toc-location: left
+    code-fold: false
+    code-overflow: scroll
+    code-copy: hover
+    number-sections: true
+    anchor-sections: true
+    embed-resources: true
+  # pdf:
+  #   documentclass: scrreprt
+
+reference-location: margin
+citation-location: margin
+fig-cap-location: margin
+tbl-cap-location: margin
+
+
+

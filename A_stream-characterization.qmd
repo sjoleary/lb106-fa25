@@ -1,0 +1,29 @@
+# Exploring the hydrological, physical, and chemical charateristics of headwaters in the Piscataquog water shed {sec-characterize-headwaters}
+
+In this first unit, we will spend some time learning about watersheds, the importance of headwater streams, and characterizing various hydrological, physical, and chemical parameters to describe streams in our local watershed, including aspects of
+
+* **Hydrology**: Characterization of the flow of water within the watershed, identifying sources, flow paths, and how water is stored and moves through the system.
+* **Temperature**: Characterization of thermal regimes and how these determine habitat availability.
+* **Water quality**: Characterization of physical and chemical characteristics including dissolved oxygen, nutrient levels, conductivity and others.
+* **Habitat & Biodiversity**: Characterization of different types of habitats within the watershed and the species that depend on these habitats and the biodiversity within the watershed, and how changes in land use and water quality affect these habitats.
+* **Landscape and Geomorphology**: Examination of the physical landscape of the watershed, including landforms, soil types, and vegetation, how these features influence water flow and ecosystem health, as well as how they may be affected by natural and anthropogenic changes.
+* **Anthropogenic Effects**: Identification of human activities within the watershed, including urban development, agriculture, and industry and assessment of how these activities impact the watershed’s health and discuss potential mitigation strategies.
+
+
+
+**After completing this unit you should be able to**
+
+* Explain what a watershed is and describe its key components.
+* Describe the potential vulnerabilities of watersheds, specifically due to anthropogenic effects and consider how they might differ across the watershed.
+* Describe major categories of parameters that can be used to asses the ecosystem health of watersheds and individual streams and how to interpret them.
+* Use mapping tools/GIS applications and other computational tools to explore publicly available data sets.
+* Describe stream flow regimes using various types of data.
+* Determine nutrient levels in stream water using standardized kits and place those values into context.
+* Describe key components of thermal regimes and apply those to temperature data sets
+* Feel more confident discussing, summarizing, and communicating scientific results with your peers and to the public
+
+
+
+## Acknowledgements
+
+Some of these activities borrow heavily the EDDIE Stream Discharge Module^[Bader, N.E., T. Meixner, C.A. Gibson, C.M. O'Reilly, and D.N. Castendyk. 26 June 2015. Project EDDIE: Stream Discharge. Project EDDIE Module 5, Version 2], [SERC's EarthLabs series](https://serc.carleton.edu/earthlabs/index.html), Window's to the Universe and California's Project WILD.
