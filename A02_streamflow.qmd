@@ -1,0 +1,248 @@
+# Characterizing the hydrological regime of the Piscataquog river & headwater streams
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+## Overview
+
+The objectives for this lab are to:
+
+-   Understand the Water Cycle
+    -   Identify major water reservoirs on Earth and know which are long-term vs short-term.
+    -   Describe the processes that move water between reservoirs (e.g., evaporation, runoff, infiltration).
+    -   Connect water reservoirs and processes to Earth’s spheres (hydrosphere, atmosphere, cryosphere, biosphere, lithosphere).
+    -   Create a labeled diagram of the water cycle, including human influences.
+-   Explore Streamflow Data and Practice the Scientific Process
+    -   Access and visualize USGS streamflow and precipitation data.
+    -   Describe patterns in streamflow across time and in response to precipitation.
+    -   Formulate and test a hypothesis using If–Then–Because statements.
+    -   Apply inductive and deductive reasoning to analyze data.
+    -   Recognize differences between descriptive vs hypothesis-driven science and basic vs applied science.
+    -   Present findings with simple data visualizations (line plots, bar plots, scatter plots).
+-   Learn About New Technologies for Monitoring Streams
+    -   Explain how traditional stream gauges measure stage and convert it to flow.
+    -   Understand the concept of a hydrological regime and why headwater streams are important.
+    -   Identify challenges of installing and maintaining gauges in small streams.
+    -   Describe how cameras and AI/ML can be used to monitor streamflow.
+    -   Annotate images to create a dataset for training models.
+    -   Reflect on factors that affect model accuracy, such as camera placement and seasonal conditions.
+    -   Compare the advantages and limitations of traditional gauges vs camera/ML approaches.
+
+## The Water Cycle connects reservoirs of water in different spheres through specific processes
+
+Water is constantly moving through Earth’s systems, stored in reservoirs and transferred by processes. Most of Earth’s water is in long-term reservoirs like the oceans and glaciers, but small amounts in short-term reservoirs like the atmosphere or rivers drive many critical climate and ecological processes.
+
+::: {.callout-tip title="Consider this"}
+Discuss with your partner how you think water is distributed among different reservoirs in our earth-climate system.
+
+Fill in the blanks below using the approximate % of total water stored in each reservoir:
+
+Oceans: \_\_\_\_\_\_ %
+
+Ice caps & glaciers: \_\_\_\_\_\_ %
+
+Groundwater: \_\_\_\_\_\_ %
+
+Lakes, rivers, and wetlands: \_\_\_\_\_\_ %
+
+Soil moisture: \_\_\_\_\_\_ %
+
+Atmosphere: \_\_\_\_\_\_ %
+
+Living organisms: \_\_\_\_\_\_ %
+
+Circle the reservoirs you think are long-term (water remains there for hundreds to thousands of years) and put a star next to the short-term reservoirs (water cycles through in days to weeks).
+
+What do you notice about the relative sizes of long- vs. short-term reservoirs?
+:::
+
+Water moves between reservoirs through processes. A process is any physical or biological mechanism that transfers water from one reservoir to another. Examples include:
+
+-   Evaporation – liquid water to water vapor.
+-   Transpiration – release of water vapor from plants.
+-   Condensation – vapor to liquid droplets (clouds).
+-   Precipitation – rain, snow, sleet, hail falling from the atmosphere.
+-   Infiltration – water soaking into soils/groundwater.
+-   Runoff – water moving across the land surface into streams and rivers.
+-   Melting & Freezing – solid ↔ liquid transitions in ice and snow.
+-   Sublimation & Deposition – solid ↔ vapor transitions in ice and snow.
+
+Together, reservoirs and processes form a dynamic cycle where water continuously moves, storing and exchanging mass among Earth’s spheres (hydrosphere, cryosphere, atmosphere, biosphere, lithosphere).
+
+::: {.callout-tip title="Consider this"}
+Pick two processes and describe them in your own words, include information about which reservoirs are connected and which sphere they are located in:
+
+-   
+
+-   
+
+Compare your description with your lab partner.
+
+Take another look at the list of processes and identify processes that directly involve the biosphere.
+:::
+
+Biogeochemical cycles are the natural movement and transformation of essential chemical elements including carbon, nitrogen, phosporous, and water through the biosphere ("bio"), and the non-living environment ("geo") and the chemical processes that connect them. We will discuss other examples in more detail during the semester.
+
+An easy way to think about these cycles is as reservoirs that are connected by specific processes. Reservoirs can be long- or short-term storage, and it is also important to consider whether reservoirs are bioavailable (chemicals are in a form that can be used by organisms) or not.
+
+::: {.callout-tip title="Give it a try"}
+On the blank space below, create a schematic of the water cycle. Label and annotate the key reservoirs you include as well as the processes that connect them.
+
+Checklist for your diagram:
+
+-   Include at least five reservoirs (label them clearly).
+-   Connect reservoirs with arrows and label the arrows with the process names.
+-   Mark reservoirs as long-term or short-term.
+-   Show how multiple Earth spheres are represented (hydrosphere, cryosphere, atmosphere, biosphere, lithosphere) using labels and annotations.
+-   Add at least one example of human influence (e.g., dam, irrigation, fossil fuel combustion, land use change).
+
+Discuss with your lab partner why the water cycle is a good example of how the Earth's spheres are interconnected (think back to our definition that the spheres are "open systems" with the freedom to exchange matter, energy, and mass). Take some notes on your conclusions here.
+:::
+
+## Exploring streamflow using the scientific Process
+
+### Science is a verb
+
+All forms of science share a common goal - to know more and better understand how the world operates. For scientific inquiry we typically employ two types of logical thinking **inductive reasoning** and **deductive reasoning**. **Inductive** reasoning moves from the particular to the general, by contrast, **deductive** reasoning moves from the general to the particular.
+
+For **descriptive science** our goal is to observe, explore, and discover. Here, we typically employ inductive reasoning with the goal of developing a hypothesis or theory. To do this, we compile related observation to draw general conclusions. We make observations and record them to build large data sets that allow us to infer generalizations based on an analysis. The data sets can be qualitative or quantitative and are frequently supplemented with drawings, pictures/videos. By contrast, **hypothesis-driven** science begins with a specific question/problem and a proposed testable or answer/solution. In this case, we are using deductive reasoning to test a theory: We start with a general principle and use that to predict a specific outcome assuming it is true and we design an experiment to determine if our results support the hypothesis. Even though we have just described these two types of reasoning as a binary to understand the difference between the approaches, most scientific studies rely on both approaches.
+
+We frequently differentiate between basic and applied science. While basic science (frequently also referred to as fundamental or pure science) sees to gain fundamental knowledge and understanding of natural phenomena for its own sake, applied sciences uses that basic knowledge to solve specific, practical problems and develop new technologies, products or interventions.
+
+Today we are going to familiarize ourselves with all these different aspects of the scientific process by exploring patterns of stream flow and precipitation.
+
+Hydrologists use stream gauges to measure discharge (the volume of water flowing past a point in a river per unit time). These data provide critical insight into the functioning of watersheds, seasonal water availability, and responses to precipitation. You will use USGS stream gauge data to visualize flow patterns and, at the same time, learn how scientists frame questions and test ideas.
+
+Science often begins with description — identifying what patterns exist before asking why. This is especially common in the environmental sciences were long-term monitoring plays a central role.
+
+::: {.callout-tip title="Give it a try"}
+You will be provided with USGS streamflow data (daily mean discharge) and paired precipitation data for one stream gauge.
+
+As part of your ditigal literacy assignment you should have created a folder for all your lab files called `LB106`. In that folder create a subfolder called `02_streamflow` with subfolders for `data` and `results`.
+
+Download the USGS stream gauge data and paired precipitation data for the Piscataquog USGS gauge located near at Howe Bridge in New Boston, as well as two locations on the Merrimack.
+:::
+
+### Exploratory analysis & visualizations (Descriptive Science)
+
+Once you have downloaded the data follow your instructors cues to learn how to use a spreadsheet program like Excel to create simple visualizations.
+
+For our first set of plots, we are using what is called a time series and our data represents continuous data.
+
+-   We will visualize stream discharge over one year using a line plot.
+-   We will use a barplot to visualize mean monthly discharge.
+
+Then we will compare two continuous variable, precipitation and discharge, which is typically done using a scatter plot.
+
+::: {.callout-tip title="Consider this"}
+Discuss your results with your lab partner.
+
+A good rule of thumb for a description of results is to start with the general trend and to then describe notable highlights. Be sure to use terms like "higher", "lower", "similar" etc to contextualize your results but the actual numbers are just as important especially if somebody wants to compare their results to yours. For example it is important to now that e.g. "there was more rain in December" but to compare that to another location we would want not only want to know the trend but also how much rain there was.
+
+Here are a few things to look for:
+
+-   What patterns do you see in the data over the year? e.g. seasonal trends, peaks after storms
+-   Which months are the highest/lowest? Are there environmental patterns that might explain this?
+-   Do higher precipitation events always lead to higher discharge? Is there a lag?
+
+Describe your results for each figure (at this point, only describe, don't interpret your results).
+:::
+
+### Moving toward explanation (hypothesis-driven science)
+
+After describing patterns, scientists often propose explanations and test them. A handy way to develop a hypothesis is to use the `If…then…because` format. The `if-then` component is a prediction you are making - the because component is the actual hypothesis where you propose a mechanisms that is at play. Remember, a good hypothesis should be testable and falsifiable. You also should always double check whether you have the data to test your hypothesis or you can design an experiment to generate the data you need.
+
+Examples:
+
+-   If precipitation increases, then streamflow will rise within one day because rainfall quickly runs off the surface.
+-   If winter temperatures are above freezing, then discharge will increase because snow and ice are melting.
+
+::: {.callout-tip title="Give it a try"}
+Work with your partner to generate 3-5 hypothesis in the if-then-because format that we can test with the data at hand.
+
+Describe how you will use the data to test your hypothesis (what will your figure look like) and then create a sketch of what your figure will look like if you are correct.
+:::
+
+We will compare our hypothesis with the class and pick the one(s) we want to test.
+
+::: {.callout-tip title="Give it a try"}
+(Re)state the hypothesis you are testing and plot your data.
+
+Describe your results and determine whether you were correct - this means that you are interpreting your data. You are not only describing what you "saw", you are actively trying to explain why you are seeing this patterns. Your first step is to compare it your hypothesis and prediction - does it match? That is evidence that your hypothesis is not wrong. It doesn't match? Well, now we have some explaining to do.
+
+A handy format to describe your findings is the following scaffold:
+
+> In this study, I investigated \[broad question asked/hypothesis tested\]. To achieve this, I \[specific data set + analysis used\]. I found that \[key results\] which \[statement about how this does or does not support your hypothesis\].
+:::
+
+Environmental Science incorporates both basic and applied science. For example, basic science would look to understand watershed processes, while applied scientists would use that understanding to improve flood prediction or water management.
+
+::: {.callout-tip title="Consider this"}
+Reflect and restate what you learned about the scientific process.
+
+-   Define what inductive reasoning is and what deductive reasoning is.
+-   Use your definitions to argue which of these examples falls into which category.
+    -   You see that discharge peaks after every rainstorm and conclude that precipitation drives streamflow.
+    -   You hypothesize that precipitation will cause an immediate increase in discharge and generate several scatter plots from different locations to determine if this principle holds.
+-   Define what descriptive and hypothesis driven research is.
+-   Think back over your work today and categorize it as descriptive or hypothesis-driven research.
+-   Compare and contrast basic and applied science.
+-   Identify one way your work today could be considered basic science and one way to could be considered applied science.
+:::
+
+## Gauges to Cameras: Developing new tools to understand stream flow
+
+The USGS operates thousands of stream gauges across the United States. These gauges measure stage (the height of water in a river or stream). Using a rating curve (an empirical relationship between stage and discharge), hydrologists convert stage into streamflow (volume of water per time).
+
+Types of gauges include:
+
+-   Staff gauges – simple rulers mounted in streams to visually read stage.
+-   Pressure transducers – measure water pressure to determine depth.
+-   Radar or acoustic sensors – mounted above the water to measure surface height.
+
+Together, these tools help build hydrological regimes — descriptions of how streamflow changes over days, seasons, and years, including responses to storms, snow melt, and drought.
+
+::: {.callout-tip title="Consider this"}
+Small streams such as headwater streams are especially difficult to monitor.
+
+Discuss with your partner
+
+-   What factors might make it difficult to monitor headwater streams?
+-   Why is it especially important to understand the hydrological regimes of headwater streams in the context of climate change and land-use impacts?
+:::
+
+A lower-cost, more flexible approach is to use wildlife cameras or other time-lapse photography systems to monitor small streams.
+
+How it works:
+
+1.  Cameras are positioned to capture images of the stream channel over time.
+2.  Training data is created by annotating images (e.g., marking “flowing” vs. “dry,” or “low flow,” “medium flow,” “high flow”).
+3.  An AI/ML model is trained on these annotated images to learn patterns that correlate with streamflow.
+
+Once trained, the model can predict flow conditions from new images, producing a hydrograph similar to one from a traditional gauge.
+
+Critical considerations:
+
+-   Camera positioning: Must clearly capture the water surface. Poor angles, glare, or obstruction can reduce accuracy.
+-   Environmental challenges: Snow, ice, vegetation growth, drought, or debris can complicate predictions.
+-   Baseline quality: Models are only as good as the annotated images used to train them.
+
+::: {.callout-tip title="Give it a try"}
+Before lab this week you should have requested access to USGS' Flow Photo explorer. We have installed cameras at two of our local headwater streams.
+
+You will annotate a series of pictures to help initiate our model (this is very real, very important science you are engaging in).
+
+After annotating, discuss with your lab partner:
+
+-   What challenges did you encounter (ambiguous images, snow/ice, glare, vegetation)?
+-   Why positioning, lighting, and seasonal variation matter for success
+-   How does this approach compare to traditional gauges? What are advantages? Limitations?
+-   As a freshly minted annotation-expert, what recommendations would you give a field biologist getting ready to install cameras for model development?
+:::

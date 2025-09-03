@@ -12,7 +12,7 @@ book:
     - part: A_stream-characterization.qmd
       chapters: 
         - A01_watershed.qmd
-        # - A02_biomes.qmd
+        - A02_streamflow.qmd
         # - A03_biomes.qmd
         # - A04_biomes.qmd
 

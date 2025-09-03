@@ -1,4 +1,4 @@
-# Watersheds
+# What's a watershed?
 
 ```{r}
 #| label: set-up
@@ -10,7 +10,7 @@ options(htmltools.dir.version = FALSE)
 
 ```
 
-# What's a watershed? {#sec-watershed}
+## Overview {#sec-watershed}
 
 Watersheds are fundamental units of the landscape that connect land, water, ecosystems, and people. The goal of this lab is for you to gain a comprehensive understanding of watersheds by building your own watershed model and exploring our local watershed. After completing these exercises, you should be able to explain what a watershed is, identify the key components, discuss the vulnerabilities of watersheds, especially those arising from human activities, and argue for the importance of maintaining healthy watersheds from both human and ecosystem perspectives.
 
