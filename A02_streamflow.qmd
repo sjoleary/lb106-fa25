@@ -1,4 +1,4 @@
-# Characterizing the hydrological regime of the Piscataquog river & headwater streams
+# Characterizing the hydrological regime of our watershed
 
 ```{r}
 #| label: set-up

@@ -1,4 +1,4 @@
-# Exploring the hydrological, physical, and chemical charateristics of headwaters in the Piscataquog water shed {sec-characterize-headwaters}
+# Exploring the hydrological, physical, and chemical charateristics of our local watershed {sec-characterize-headwaters}
 
 In this first unit, we will spend some time learning about watersheds, the importance of headwater streams, and characterizing various hydrological, physical, and chemical parameters to describe streams in our local watershed, including aspects of
 

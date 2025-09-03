@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "Labmanual General Biology II"
-  subtitle: "BI104 | Spring 2025 | Saint Anselm College"
+  title: "Labmanual Introduction to Environmental Science"
+  subtitle: "BI106 | Fall 2025 | Saint Anselm College"
   author: "Shannon J O'Leary"
   date: today
   chapters:
