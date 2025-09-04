@@ -1,0 +1,67 @@
+# Introduction to data visualization
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+## Data visualizations using Google Sheets
+
+Here is your illustrated cheat sheet to creating a chart using Google Sheets and either saving it to your laptop or the cloud or directly copying it into a GoogleDoc.
+
+### Research compendium set up
+
+![You should have an lb106 folder on your hard drive and two backup locations (OneDrive, Google Drive) from our initial digital literacy assignment this semester.](images/Screenshot 2025-09-04 082341.png){width="687"}
+
+![For each project we will create a folder, with subfolders to hold our data and results, including visualizations we make along the way. This is frequently referred to as a research compendium.](images/Screenshot 2025-09-04 082428.png){fig-align="center"}
+
+![Create sub folders by right clicking and selecting new folder. ProTip: keep everything lowercase so later you don't have to remember what/if you capitalized.](images/Screenshot 2025-09-04 082649.png)
+
+![For the streamflow lab we have daily discharge and precipitation for the last year as well as mean monthly discharge and historical monthly discharge going back \> 50 years for three locations. All 9 files are in our data folder in separate spreadsheets.](images/Screenshot 2025-09-04 082712.png)
+
+### Set up a new plot
+
+![Open a spreadsheet with data in it, in this example we have columns with the weather station ID, the name of the weather station, the date, precipitation data, discharge and the USGS station name. Make sure that you know what columns contain the data you want to plot.](images/Screenshot 2025-09-04 082848.png){width="613"}
+
+![Use `Insert` `Chart` to insert a blank chart into your spreadsheet.](images/Screenshot 2025-09-04 082914.png){width="540"}
+
+![Double click the chart area to pull up the Chart editor on the right hand of your screen. Open the Chart Type dropdown menu. We will most typically use line charts for time series, column (bar charts) to visualize categorical data, and scatterplots to show relationships between two continuous variables.](images/Screenshot 2025-09-04 083018.png)
+
+![For this example we will select a line chart. Next we need to pick our data range. The easiest way to do this to click on the little grid in the `Data Range` selector. You can either use your cursor to select the data range or simply chose the suggested data range (remember to double check! this works well if you don't have a lot of missing data where it is easy for the program to determine where the data block is).](images/Screenshot 2025-09-04 083159.png)
+
+![Select the data range and click `OK`](images/Screenshot 2025-09-04 083222.png)
+
+![Now you should see that GoogleSheets is using the column headers to allow you to more easily select entire columns than having to drag a cursor across your columns. We need to make sure we have the correct set rather than the default.](images/Screenshot 2025-09-04 083408.png)
+
+![For our example we want to select the date column for our x-axis. You can do this using the drop down menu.](images/Screenshot 2025-09-04 083456.png){width="177"}
+
+![next we will set up our y-axis - you can use the hamburger/three drot menu to remove unwanted variables.](images/Screenshot 2025-09-04 083704.png){width="178"}
+
+![Select discharge as the series to be displayed.](images/Screenshot 2025-09-04 083855.png){width="685"}
+
+### Format axis and chart titles
+
+![A good figure has clearly labeled axis. You can add and edit titles using the `Customize` menu/tab. Go ahead and switch to that view.](images/Screenshot 2025-09-04 083954.png)
+
+![Use the drop down menu to select the horizontal axis title.](images/Screenshot 2025-09-04 084033.png){width="220"}
+
+![Add a horizontal axis to get your x-axis title.](images/Screenshot 2025-09-04 084326.png)
+
+![Add a vertical axis for your y-axis title. Good practice is including the variable being displayed along with the units it is measured in.](images/Screenshot 2025-09-04 084218.png)
+
+![You can also add a chart title. This is important if your figures are going to be standalone, i.e. they are not going to be added into a document where they would have a figure legend under the figure that would include a title and description.](images/Screenshot 2025-09-04 084558.png)
+
+### Exporting figures and inserting them into documents
+
+![You can use the hamburger/three dot menu to download the chart. Downloading it as a PNG to easily be able to insert it into another document (this is not an option for a pdf). An svg means that you would be able to edit it in a program link Inkscape or Illustrator. Remember that results folder we made? That is where it should go. If you are going to keep working with GoogleDocs you can also select to Copy the chart.](images/Screenshot 2025-09-04 085404.png)
+
+![Open a GoogleDoc. A right click will bring up a menu to allow you to Paste your figure. Alternatively you could use the shortcut `Ctrl` + `V` (or `Command` + `V`).](images/Screenshot 2025-09-04 085530.png)
+
+![Make sure that you select paste unlinked to make sure that it is standalone and no longer connected to your spreadsheet and any changes you might make there.](images/Screenshot 2025-09-04 085615.png)
+
+![Boom - Figure! Remember that in a written report you should number your figures and add a legend that consists of a title and description.](images/Screenshot 2025-09-04 090154.png)

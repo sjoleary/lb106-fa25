@@ -35,11 +35,11 @@ book:
         # - C05_describe.qmd
         # - C06_communicate.qmd
 
-   # -  part: D_set-up.qmd
-      # chapters:
-      #   - D01_experim-design.qmd
-      #   - D02_data-management.qmd
-      #   - D03_posit.qmd
+    -  part: D_Exp-Design-Analysis.qmd
+       chapters:
+         - D01_experim-design.qmd
+         - D02_data-management.qmd
+         - D03_visualizations.qmd
       #   - D04_descript-stats.qmd
       #   - D05_inferent-stats.qmd
       #   - D06_writing-report.qmd
