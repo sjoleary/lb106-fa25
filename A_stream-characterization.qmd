@@ -10,7 +10,6 @@ In this first unit, we will spend some time learning about watersheds, the impor
 * **Anthropogenic Effects**: Identification of human activities within the watershed, including urban development, agriculture, and industry and assessment of how these activities impact the watershed’s health and discuss potential mitigation strategies.
 
 
-
 **After completing this unit you should be able to**
 
 * Explain what a watershed is and describe its key components.

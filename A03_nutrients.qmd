@@ -1,0 +1,467 @@
+# Water quality assessment using physical/chemical parameters and nutrient levels
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+## Overview
+
+The objectives for this lab are to:
+
+-   measure key water-quality parameters (nitrate, phosphate, ammonium, chloride, total hardness) with field test kits.
+-   practice developing a testable, falsifiable hypothesis.
+-   practice visualizing data.
+-   learn to calculate summary statistics (central tendency and variation).
+-   practice describing and interpreting results.
+
+## Introduction
+
+### Assessing water quality with physical and chemical parameters
+
+Water quality assessment is essential for understanding the health of freshwater ecosystems and for protecting the services they provide to people and nature. Environmental scientists evaluate water quality by measuring a suite of physical, chemical, and biological parameters that together reflect the condition of rivers, lakes, and groundwater. Agencies such as the U.S. Environmental Protection Agency (EPA) and state departments of environmental services monitor water quality routinely to track compliance with the Clean Water Act, identify impairments, and assess suitability for drinking water, recreation, aquatic life, and other designated uses. Data from these monitoring programs provide baselines for evaluating changes over time, detecting pollution sources, and guiding restoration and management decisions. In this lab, you will use field-collected samples to measure key parameters with widely implemented test kits, building hands-on experience with the same indicators used by agencies and researchers.
+
+In this lab we will consider four main groups of water quality parameters.
+
+**Physical/environmental parameters**:
+
+-   ***Temperature*** (°C) regulates biological activity, metabolic rates, and oxygen solubility.
+-   ***Dissolved oxygen*** (mg/L) is essential for aquatic organisms. Values below \~5 mg/L stress sensitive species, while levels below 2 mg/L can create hypoxic “dead zones”.
+-   ***Oxidation–reduction potential*** (ORP, mV) reflects the overall redox state of the water and can indicate conditions favorable to oxidation or reduction reactions.
+-   ***Turbidity*** (NTU) and ***total dissolved solids*** (TDS, mg/L) measure water clarity and the total load of dissolved material, respectively; high values may indicate erosion, road salt, or wastewater inputs.
+
+**Chemical parameters:**
+
+-   ***pH*** (unitless) reflects acidity/alkalinity; natural waters generally range between 6.5–8.5, and deviations can harm aquatic life.
+-   ***Conductivity or specific conductance*** (µS/cm) is a measure of ionic strength; high values can indicate salts, fertilizers, or urban runoff.
+-   ***Salinity*** (ppt) is closely related to conductivity and becomes important in tidal reaches.
+-   ***Total hardness*** (mg/L as CaCO₃) represents the concentration of calcium and magnesium ions. Hardness affects buffering capacity and the solubility of other chemicals; very soft water (\<60 mg/L as CaCO₃) is more vulnerable to acidification, while very hard water (\>180 mg/L) may indicate carbonate-rich geology or anthropogenic inputs.
+
+**Nutrient parameters:**
+
+-   ***Nitrate*** (mg/L as N), ***ammonium*** (mg/L as N), and ***phosphate*** (mg/L as P) are key nutrients that support primary production. At low levels, they are essential to ecosystem function, but elevated concentrations often stem from fertilizer runoff, wastewater, or septic leachate, and can lead to eutrophication, algal blooms, and oxygen depletion.
+-   ***Chloride*** (mg/L) is often associated with road de-icing salts; concentrations above \~230 mg/L are concerning for chronic exposure in freshwater ecosystems.
+
+Together, these parameters provide a multi-dimensional picture of river health, integrating natural watershed characteristics with human influences such as urbanization, agriculture, and wastewater discharge. Very high or very low values in any parameter may serve as “red flags” of disturbance, pollution, or altered ecosystem function. By exploring these data across a connected watershed—the South Branch Piscataquog and Merrimack Rivers—you will develop broad questions about how water quality changes downstream and form specific hypotheses about the drivers shaping observed patterns.
+
+### Temperature and Dissolved Oxygen shape biological communities
+
+**Temperature** and **dissolved** **oxygen** (**DO**) are two of the most important factors shaping the biological community in streams and rivers. Many aquatic organisms, especially fish and macroinvertebrates, have narrow temperature tolerances. Coldwater species such as brook trout require cool, oxygen-rich water and often move into shaded headwater streams or groundwater-fed tributaries during the summer to avoid thermal stress. Excellent conditions for even the most sensitive species generally mean dissolved oxygen concentrations above **7–8 mg/L**, with brook trout and other salmonids thriving best when levels exceed **9 mg/L**. Dissolved oxygen (DO) levels are closely tied to temperature, since cooler water can hold more oxygen than warmer water. DO is also influenced by flow conditions (turbulent riffles increase oxygen exchange), photosynthesis by aquatic plants and algae (which elevates DO during the day but can reduce it at night), and the decomposition of organic matter (which consumes oxygen). Anthropogenic factors such as nutrient enrichment (leading to algal blooms and nighttime oxygen crashes), wastewater inputs, stormwater runoff, and channel modifications that reduce flow turbulence can all lower DO. Along a watershed, DO patterns are expected to change: small, shaded, fast-flowing headwaters often have cool water with consistently high oxygen; mid-sized rivers may show greater variability with warmer water and diel fluctuations in DO; and in the larger, slower mainstem reaches approaching the ocean, DO levels often decline due to higher temperatures, deeper channels, and organic matter accumulation, though tidal mixing in estuarine zones can reintroduce oxygen. Maintaining cool headwaters and high DO levels is therefore critical to sustaining diverse and healthy stream ecosystems.
+
+### Turbidity measures suspended particles
+
+**Turbidity** is a measure of how cloudy or opaque water appears due to suspended particles such as sediment, organic matter, algae, and pollutants. It is usually measured in **nephelometric turbidity units (NTU)** using a sensor that detects how light scatters when it passes through the water. Turbidity is an important parameter for assessing watershed health because high levels can reduce light penetration, limiting photosynthesis in aquatic plants, clog fish gills, smother benthic habitats, and transport contaminants bound to sediments. In a healthy watershed, turbidity levels are typically **below 10 NTU**, though brief increases after storm events are normal; values consistently above **50–100 NTU** may indicate ecosystem stress or poor water quality. Along a river continuum, turbidity often starts low in headwater streams where water is fast-moving and filtered by forest soils, gradually increases in the main stem as tributaries contribute sediments and nutrients, and may peak near the outlet where larger flows, floodplains, and human activity accumulate impacts. Anthropogenic factors such as deforestation, agriculture, construction, mining, and urban runoff can greatly elevate turbidity by increasing erosion and sediment delivery. However, not all turbidity is a sign of an unhealthy system: natural events such as heavy rains, snowmelt, or seasonal algal blooms can temporarily raise turbidity levels without long-term harm. Understanding both the magnitude and duration of turbidity fluctuations is therefore essential for interpreting ecosystem health.
+
+Turbidity is not just about water clarity—it is also a key driver of nutrient transport and availability, and must be considered alongside nitrogen and phosphorus measurements to understand watershed health. Turbidity and nutrients are tightly connected in streams and rivers because suspended particles often act as carriers for nutrient compounds.
+
+-   **Phosphorus:** A large fraction of phosphorus in streams is bound to sediment particles. When turbidity increases due to erosion or storm runoff, phosphorus levels often rise as well. This can fuel algal blooms downstream once particles settle and release phosphorus.
+-   **Nitrogen:** Particulate organic matter suspended in turbid water can contain nitrogen that becomes available when decomposed, further contributing to nutrient enrichment.
+-   **Light Limitation:** High turbidity reduces light penetration, which can limit photosynthesis and primary productivity—even if nutrient levels are high. This means turbidity can both mask and amplify the effects of nutrient loading depending on conditions.
+-   **Anthropogenic Drivers:** Construction, agriculture, road runoff, and urbanization can simultaneously increase turbidity and nutrient input, creating a strong link between land use and water quality.
+
+### TDS measures dissolved particles
+
+**Total Dissolved Solids (TDS)** is a measure of the combined concentration of dissolved inorganic salts (such as calcium, magnesium, potassium, sodium, bicarbonates, chlorides, and sulfates) and small amounts of organic material in water. It is usually measured in **parts per million (ppm)** using a gravimetric method or conductivity-based sensors. TDS is an important water quality parameter because it reflects the overall ionic composition of a stream and influences aquatic life, nutrient cycling, and the suitability of water for human use. In natural systems, headwater streams typically have **low TDS** because they are fed by precipitation and groundwater inputs with limited mineral contact, while levels tend to increase downstream as water interacts with soils, bedrock, and tributary inputs. By the time rivers reach their main stem and outlet, TDS can be much higher, especially where geology contributes soluble minerals. Anthropogenic factors such as road salt application, agricultural runoff, industrial discharges, and wastewater inputs can cause abnormally high TDS levels, which may stress aquatic organisms, alter osmoregulation, and disrupt ecological balance. In general, TDS below 300 ppm is considered excellent, while values above 500 ppm can be concerning for sensitive species and may indicate pollution or excessive salt loading. Natural factors such as seasonal snowmelt, drought (which concentrates solutes), or volcanic/mineral springs can also elevate TDS without necessarily signifying poor ecosystem health. Because both natural and human influences shape TDS, interpreting values requires consideration of local geology, land use, and seasonal variation.
+
+### ORP can be indicative of microbial activity and organic loading
+
+**Oxidation-Reduction Potential (ORP)** is a measure of the tendency of water to either gain or lose electrons, reflecting its ability to act as an oxidizing or reducing environment. It is measured using an electrochemical probe that compares the potential of the water sample to a standard reference electrode, and values are reported in **millivolts (mV)**. Positive ORP values indicate oxidizing conditions, which are generally associated with healthy, oxygen-rich environments, while negative values reflect reducing conditions, common in oxygen-depleted or anaerobic environments. Because oxygen is the strongest naturally occurring oxidizing agent in most surface waters, ORP is closely tied to **dissolved oxygen (DO)** concentrations. In well-aerated headwater streams with high DO, ORP values are typically high (around +300 to +500 mV), supporting diverse aquatic life including sensitive species. As water moves downstream, ORP often decreases due to cumulative organic inputs, sediment oxygen demand, and nutrient enrichment, which can lower DO and drive more reducing conditions. Sustained ORP values below +100 mV often indicate low DO, high microbial respiration, or pollution, while strongly negative values (below 0 mV) may signal severe oxygen depletion or eutrophic conditions. Anthropogenic factors such as wastewater discharge, agricultural runoff, and industrial effluents can reduce ORP by consuming oxygen and fueling microbial activity. Natural processes, like organic matter breakdown in wetlands or seasonal low-flow conditions, can also reduce ORP without necessarily reflecting ecosystem collapse. In general, healthy freshwater systems maintain ORP values above +300 mV and DO above 7–8 mg/L, while persistent declines in both parameters often signal ecological stress. Monitoring ORP together with DO provides a more complete picture of oxygen dynamics, redox processes, and overall river health from pristine headwaters to developed lowland reaches and estuarine outlets.
+
+### Total Hardness indicates buffering capacity, nutrient availability and affects animal's physiology
+
+**Total Hardness** is a measure of the concentration of multivalent cations in water, primarily **calcium (Ca²⁺)** and magnesium (Mg²⁺) ions, which are naturally leached from soils and bedrock. It is typically determined using a titration with ethylenediaminetetraacetic acid (EDTA) and expressed in parts per million (ppm) as calcium carbonate (CaCO₃). Hardness is an important parameter for assessing watershed health because it influences buffering capacity, nutrient availability, and the physiology of aquatic organisms. Very soft waters (\<60 ppm) often have limited buffering ability, making them vulnerable to acidification and harmful pH swings, while very hard waters (\>180 ppm) can cause scaling, alter nutrient solubility, and stress species not adapted to such conditions. In a watershed, hardness often starts relatively low in headwater streams depending on the underlying geology, and may increase downstream as water interacts with carbonate-rich soils, limestone, or anthropogenic inputs. By the time rivers reach the main stem and outlet, hardness tends to be higher due to cumulative inputs from tributaries and land use activities. Anthropogenic factors such as agricultural lime application, industrial effluents, and urban runoff (including concrete leaching and road dust) can elevate hardness beyond natural ranges. Conversely, acid rain or mining drainage can lower hardness, leaving waters poorly buffered and more vulnerable to ecological stress. Generally, hardness between 60–120 ppm is considered moderately hard and optimal for most freshwater ecosystems, while values consistently below 40 ppm or above 300 ppm may be concerning depending on the biological community. Natural factors such as seasonal flow variation or local geology (e.g., granite vs. limestone bedrock) can drive changes in hardness that do not necessarily indicate unhealthy conditions, underscoring the need to interpret this parameter in context.
+
+Hardness is also closely linked to alkalinity—a measure of the water’s ability to neutralize acids, which is largely controlled by carbonate (CO₃²⁻) and bicarbonate (HCO₃⁻) ions. Together, hardness and alkalinity influence pH buffering capacity, or the resistance of a stream to rapid pH fluctuations caused by acid rain, pollution, or biological processes like respiration and photosynthesis. Waters with sufficient hardness and alkalinity can maintain relatively stable pH levels that support a diverse aquatic community, while very soft waters are more prone to swings that can stress or eliminate sensitive species. This makes hardness an important parameter not only on its own, but also in understanding broader chemical interactions that stabilize stream ecosystems across a watershed.
+
+### pH impacts chemical processes, nutrient solubility, and animal physiology
+
+**pH** is a measure of the concentration of hydrogen ions (**H⁺**) in water, expressed on a logarithmic scale ranging from 0 (acidic) to 14 (basic), with 7 being neutral. It is typically measured using either colorimetric field kits or electronic pH probes and is reported in **pH units** (dimensionless). pH is an important parameter for ecosystem health because it directly affects chemical processes, nutrient solubility, and the physiology of aquatic organisms. Most freshwater organisms thrive in a relatively narrow range of **pH 6.5–8.5**, and waters that fall outside of this range can become stressful or even lethal to sensitive species. In general, **headwater streams** that drain forested, undeveloped areas may be slightly acidic (especially in regions with granite bedrock or organic soils), while values tend to become more neutral to slightly basic downstream as waters interact with carbonate-rich geology, soils, and cumulative inputs. By the time a river reaches its **main stem and outlet**, pH is often moderated by greater buffering capacity and mixing with tributaries. Anthropogenic factors such as acid rain, mining runoff, industrial discharge, or wastewater inputs can lower pH, while agricultural lime, concrete leaching, or algal blooms (through CO₂ uptake during photosynthesis) can raise pH. Natural processes, such as seasonal leaf litter decomposition or groundwater inputs rich in carbonates, can also shift pH without necessarily indicating unhealthy conditions. In general, **pH between 6.5 and 8.5** is considered optimal for aquatic ecosystems, while sustained values below 5.5 or above 9.0 are critical and may cause direct harm to fish, invertebrates, and microbial communities. Because pH interacts with other chemical parameters such as hardness, alkalinity, and ORP, it provides key insight into the buffering capacity and chemical stability of a watershed.
+
+pH doesn’t just affect aquatic organisms directly it controls the chemical form, solubility, and biological effects of nutrients and pollutants, shaping the entire ecology of a watershed.
+
+-   **Ammonia (NH₃/NH₄⁺):** The toxicity of ammonia increases as pH rises. At lower pH, ammonia exists mostly in the less toxic ionized form (NH₄⁺), while at higher pH (\>8.5), a greater proportion shifts to un-ionized NH₃, which is harmful to fish and invertebrates.
+-   **Phosphates (PO₄³⁻):** At neutral to slightly basic pH, phosphate tends to bind with calcium and magnesium, making it less available for algae. At lower pH, phosphate remains more soluble, which can enhance algal growth.
+-   **Metals:** The solubility of many heavy metals (e.g., aluminum, lead, copper) increases under acidic conditions, which can stress or kill aquatic life even at low concentrations.
+-   **Buffering:** Streams with adequate hardness and alkalinity can resist sharp pH swings, helping stabilize nutrient chemistry and reduce stress on organisms.
+
+### Conductivity and specific conductance reflect the total ionic content of water
+
+**Conductivity and Specific Conductance** are measures of the ability of water to carry an electrical current, which reflects the concentration of dissolved ions such as sodium, calcium, magnesium, chloride, and sulfate. Conductivity is the general term, while specific conductance refers to conductivity standardized to a reference temperature (usually 25°C) to allow comparison across sites and conditions. Both are measured using electronic probes and reported in microsiemens per centimeter (µS/cm). These parameters are important indicators of watershed health because they reflect the total ionic content of water, which can influence osmoregulation in aquatic organisms, nutrient availability, and overall chemical balance. In headwater streams, conductivity is usually low (\<100–150 µS/cm) because water has limited contact with mineral-rich soils and human inputs. As rivers progress downstream into the main stem and toward the outlet, conductivity often increases naturally due to accumulation of dissolved minerals from tributaries and groundwater, as well as interaction with soils and bedrock. Anthropogenic activities, including road salt application, wastewater discharge, agricultural runoff, and industrial effluents, can substantially elevate conductivity and specific conductance above natural background levels. Extremely high values (\>500–1000 µS/cm, depending on local context) can stress aquatic life and indicate pollution. Conversely, low conductivity may occur in very soft water or in waters dominated by precipitation inputs, which is not necessarily unhealthy. Interpreting conductivity requires understanding both natural geology and human impacts across the watershed to assess ecosystem health accurately.
+
+Conductivity and turbidity together provide a fuller picture of both dissolved and particulate water chemistry. High values alone aren’t always harmful, but concurrent spikes in turbidity, conductivity, and nutrients can signal watershed stress and potential impacts to aquatic life. Conductivity and specific conductance reflect the total dissolved ionic content of water, while turbidity measures suspended particles. These parameters often interact in influencing nutrient dynamics:
+
+-   **Nutrient Transport:** Many nutrients, especially phosphorus and some forms of nitrogen, attach to sediment particles. High turbidity events (e.g., after storms) can mobilize these particles downstream, increasing nutrient delivery. Dissolved ions measured as conductivity may also increase simultaneously due to runoff carrying salts, fertilizers, or wastewater.
+-   **Water Chemistry Context:** Conductivity provides a background measure of ionic strength, which can influence nutrient solubility, chemical speciation, and the mobility of metals bound to particles.
+-   **Anthropogenic Drivers:** Urban runoff, agriculture, and road deicing can simultaneously elevate turbidity, nutrient load, and conductivity, creating hotspots of altered water chemistry.
+-   **Natural Variation:** Seasonal rains, snowmelt, and erosion of mineral-rich soils can temporarily elevate conductivity and turbidity without indicating poor ecosystem health.
+
+### Salinity
+
+**Salinity** is a measure of the total concentration of dissolved salts in water, primarily composed of sodium, chloride, magnesium, calcium, and potassium ions. It is typically measured using conductivity-based sensors, refractometers, or titration methods, and is reported in parts per thousand (ppt) or practical salinity units (PSU). Salinity is an important parameter for assessing watershed and estuarine health because it influences water density, osmoregulation in aquatic organisms, and the distribution of freshwater versus marine species. In freshwater systems, headwater streams typically have very low salinity (\<0.1 ppt), reflecting minimal contact with salts, while values may gradually increase downstream in the main stem due to cumulative natural inputs (e.g., mineral-rich soils or groundwater) and anthropogenic sources. Near the outlet and estuarine zones, salinity naturally increases due to tidal mixing and seawater intrusion. Human activities such as road salt application, wastewater discharge, industrial effluent, and agricultural runoff can elevate salinity in freshwater streams, potentially stressing or excluding sensitive species. Salinity levels in freshwater systems above 0.5–1.0 ppt may begin to cause stress for typical freshwater organisms, while higher concentrations can be toxic. Natural factors such as groundwater chemistry, tidal influence, or seasonal evaporation can also increase salinity without indicating poor ecosystem health. Monitoring salinity alongside other chemical parameters, such as chloride, TDS, and conductivity, helps provide a comprehensive understanding of watershed and estuarine ecosystem conditions.
+
+### Chloride concentration are influenced by anthropogenic inputs
+
+**Chloride (Cl⁻)** is a negatively charged ion (anion) commonly found in natural waters as part of salts such as sodium chloride (NaCl) and calcium chloride (CaCl₂). It is typically measured using colorimetric kits, ion-selective electrodes, or ion chromatography, and is reported in **milligrams per liter (mg/L) or parts per million (ppm)**. Chloride is an important parameter for assessing watershed health because elevated concentrations can indicate anthropogenic inputs, such as road salt, wastewater effluent, or industrial discharge, and can be toxic to sensitive aquatic organisms at high levels. In natural systems, **headwater streams** usually have low chloride concentrations (\<10–20 ppm) because they are primarily fed by precipitation and groundwater with minimal human impact. As water flows downstream to the **main stem and outlet**, chloride concentrations can naturally increase slightly due to cumulative inputs from tributaries, but significant increases are often linked to human activities. Road salt application in winter, urban stormwater runoff, and wastewater effluent are common drivers of elevated chloride levels, which can disrupt osmoregulation in fish and invertebrates and affect community composition. Chloride concentrations above **230 ppm** are considered concerning for chronic freshwater exposure, while acute toxicity may occur at higher levels. Natural factors, such as mineral-rich geology or seawater intrusion near estuarine zones, can also elevate chloride without necessarily indicating unhealthy conditions. Monitoring chloride alongside other chemical and physical parameters helps identify both natural variation and anthropogenic impacts across a watershed.
+
+Monitoring salinity together with chloride provides insight into both natural and human-influenced changes in dissolved salts, helping distinguish between healthy watershed conditions and potential stressors for aquatic life. Salinity and chloride are closely related because chloride ions (Cl⁻) are the dominant component of dissolved salts in most waters. Understanding their relationship helps interpret ecosystem health:
+
+-   **Contribution to Salinity:** In freshwater and estuarine systems, chloride often accounts for the majority of salinity. Natural sources include groundwater leaching of minerals and seawater intrusion in estuaries, while anthropogenic sources include road salt, wastewater, and industrial effluent.
+-   **Ecosystem Impacts:** Elevated chloride increases salinity, which can stress freshwater organisms by disrupting osmoregulation. High salinity can also affect species distribution, favoring salt-tolerant organisms and reducing biodiversity.
+-   **Anthropogenic Drivers:** Winter road salting, urban runoff, and wastewater discharges often simultaneously raise both chloride and salinity, contributing to cumulative stress in streams and rivers.
+-   **Natural Variation:** Salinity can increase naturally near estuarine zones due to tidal influence or in regions with mineral-rich geology. These increases do not necessarily indicate pollution.
+
+### Nitrates and ammonium
+
+**Nitrates (NO₃⁻) and ammonium (NH₄⁺)** are key forms of nitrogen in aquatic ecosystems and serve as important indicators of nutrient status and potential pollution. Nitrates are the oxidized, highly soluble form of nitrogen, commonly produced by microbial nitrification in soils or through fertilizer runoff, and are typically measured using colorimetric test kits, ion chromatography, or spectrophotometry. Ammonium is the reduced, ionized form of nitrogen, often derived from organic matter decomposition, wastewater, or livestock waste, and is measured using similar methods with specific reagents that detect NH₄⁺. Both are reported in milligrams per liter (mg/L or ppm). These compounds are important to monitor because excessive nitrogen can lead to eutrophication, algal blooms, oxygen depletion, and shifts in aquatic communities.
+
+In a watershed, headwater streams generally have low nitrate and ammonium concentrations due to limited nutrient inputs and uptake by riparian vegetation, while values typically increase downstream in the main stem and outlet as cumulative inputs from tributaries, agriculture, and urban areas contribute additional nitrogen. Anthropogenic activities such as fertilizer application, wastewater discharge, livestock operations, and stormwater runoff can elevate both nitrate and ammonium levels, potentially causing ecological stress. Expected concentrations in relatively unimpacted streams are usually \<1 mg/L for ammonium and \<2 mg/L for nitrate, while levels above 10 mg/L nitrate or 2 mg/L ammonium can be concerning for ecosystem health, depending on local context. Natural factors, including soil mineralization, groundwater inputs, and seasonal decomposition of organic matter, can also influence nitrogen concentrations without necessarily indicating pollution. Monitoring both forms of nitrogen together provides a more complete picture of nutrient dynamics and potential anthropogenic impacts across a watershed.
+
+Nitrogen compounds such as nitrates (NO₃⁻) and ammonium (NH₄⁺) are closely connected to other chemical and physical parameters in streams. Measuring nitrates and ammonium alongside TDS, conductivity, and turbidity allows managers to see how nutrients, dissolved ions, and suspended particles interact. This integrated view helps distinguish natural patterns from human-driven impacts in watersheds.
+
+-   **TDS and Conductivity:** Dissolved nitrogen contributes to the ionic content of water, slightly elevating **TDS** and **conductivity**. Monitoring these parameters together helps distinguish natural mineral contributions from nutrient enrichment due to human activity.
+-   **Turbidity:** Nitrogen is often associated with organic particles, sediment, or algae. Elevated turbidity can indicate increased transport of particulate-bound nitrogen, especially after storms or runoff events.
+-   **Anthropogenic Drivers:** Fertilizer runoff, wastewater, livestock operations, and urban stormwater can simultaneously elevate nitrogen, TDS, conductivity, and turbidity, highlighting areas of watershed stress.
+-   **Natural Variation:** Seasonal decomposition, groundwater inputs, and soil mineralization can increase nitrogen, conductivity, or turbidity without signaling poor ecosystem health.
+
+### Phosphates
+
+**Phosphates (PO₄³⁻)** are a key form of phosphorus in aquatic ecosystems and an essential nutrient for plant and algal growth. Phosphates exist in both dissolved and particulate forms, with **orthophosphate** being the bioavailable dissolved form that most directly influences primary productivity. They are typically measured using colorimetric test kits, spectrophotometry, or ion chromatography and reported in milligrams per liter (mg/L or ppm). Monitoring phosphates is important because excessive phosphorus can lead to eutrophication, algal blooms, oxygen depletion, and altered aquatic communities.
+
+In a watershed, headwater streams usually have low phosphate concentrations (\<0.05–0.1 mg/L) because of limited inputs from natural sources and efficient uptake by riparian vegetation. Concentrations tend to increase downstream in the main stem and outlet due to cumulative inputs from tributaries, soils, agricultural runoff, and urban areas. Anthropogenic factors such as fertilizer application, wastewater discharge, livestock operations, and urban stormwater can significantly elevate phosphate levels, potentially causing ecological stress. Levels above 0.1–0.3 mg/L are often considered elevated for freshwater streams, while \>0.5 mg/L can indicate nutrient enrichment that poses a risk for eutrophication. Natural processes, such as mineral leaching from soils, leaf litter decomposition, or sediment disturbance during storms, can also temporarily increase phosphate concentrations without indicating unhealthy conditions. Measuring phosphates alongside other nutrient and chemical parameters allows for a more complete assessment of watershed health and nutrient dynamics.
+
+Phosphates (PO₄³⁻) are an essential nutrient for aquatic plants and algae, but excessive levels can lead to eutrophication, oxygen depletion, and altered aquatic communities. Phosphate concentrations are closely connected to other chemical and physical parameters in streams. Measuring it alongside turbidity, TDS, conductivity, pH, ORP, and DO provides a more integrated view of nutrient dynamics, water chemistry, and overall ecosystem health across a watershed.
+
+-   **Turbidity:** Particulate-bound phosphate can increase during storms or runoff events, so elevated turbidity often signals higher transport of phosphorus.
+-   **TDS and Conductivity:** Dissolved phosphate contributes to the ionic content of water, influencing **total dissolved solids (TDS)** and **conductivity**. Monitoring these together helps distinguish natural versus anthropogenic contributions.
+-   **pH and ORP:** The solubility and bioavailability of phosphate can be affected by pH and oxidation-reduction potential, with certain conditions promoting phosphorus release from sediments.
+-   **Dissolved Oxygen:** Excessive phosphate can fuel algal growth, which may later lead to oxygen depletion when organic matter decomposes.
+
+## Ask an interesting question
+
+n this lab, you will explore water quality across multiple sites in a watershed. To guide your analysis, you will formulate hypotheses using the **IF–THEN–BECAUSE** format. You will create hypotheses for each of the three categories of water quality parameters:
+
+1.  **Physical Parameters** (e.g., temperature, dissolved oxygen, turbidity, TDS, conductivity)
+2.  **Chemical Parameters** (e.g., pH, ORP, total hardness, chloride, salinity)
+3.  **Nutrients** (e.g., nitrate, ammonium, phosphate)
+
+#### **Step 1: Choose Your Focus**
+
+You do **not** need to create completely separate hypotheses for each parameter. Instead, you can focus on a single ecological or watershed-related process and choose 2–3 parameters that indicate the same thing. Think through these examples:
+
+-   If your goal is to explore **nutrient enrichment**, what parameters could you use to explore a single hypothesis?
+
+-   If your goal is to explore **human impact downstream**, what parameters could you use to explore a single hypothesis?
+
+-   If you want to explore **coldwater habitat health**, what parameters could you use to explore a single hypothesis?
+
+Choosing parameters that indicate the same ecological process allows you to test your hypothesis more robustly. Double check that you have one parameter from each category.
+
+#### **Step 2: Use the IF–THEN–BECAUSE Format**
+
+-   **IF:** State your prediction about a relationship between location or condition and the water quality parameter(s).
+
+-   **THEN:** Predict the expected observation or trend in the data.
+
+-   **BECAUSE:** Explain the ecological or watershed rationale for your prediction. Remember, this is you actual hypothesis
+
+**Example (***note that this one uses three parameters from the same category!***)**
+
+> **IF** downstream sites receive more urban and agricultural runoff, **THEN** nitrate, ammonium, and phosphate concentrations will be higher at these sites compared to headwaters, **BECAUSE** runoff from fertilizer and wastewater contributes nutrients to the river system.
+
+#### **Step 4: Make It Specific and Testable**
+
+Take a closer look at your hypothesis and double check that you are setting yourself up for success:
+
+-   Focus on a **clear trend or difference** between upstream and downstream sites, or headwater versus main stem versus outlet.
+-   Avoid vague predictions; your hypothesis should be something you can evaluate using the data you collected.
+-   Remember that we are situated in the Merrimack watershed: We have the South Branch Piscataquog Tributary from almost at origin to where it flows into the Merrimack at Manchester and then the Merrimack River from Manchester to just before it flows into the Atlantic Ocean.
+
+### Formulate your hypothesis
+
+::: {.callout-tip title="Give it a try"}
+State your hypothesis using the if-then-because format. You can use the cheatsheet below for reference.
+
+Then create a sketch of the figure you will use to visualize your data to determine if you are correct.
+:::
+
+Here is your cheatsheet with an overview of parameters, their interactions, ideas about potential expected spatial patterns, and anthropogenic impacts.
+
+#### Physical Parameters
+
+***Temperature and Dissolved Oxygen (DO)***
+
+-   **Temperature:** Regulates metabolic rates, solubility of oxygen, and distribution of aquatic species. Cold headwater streams provide critical habitat for sensitive species like brook trout.
+-   **Dissolved Oxygen (DO):** Measures the amount of oxygen available for aquatic life (mg/L or ppm). High DO (\>7–8 mg/L) is ideal; very low DO (\<5 mg/L) stresses organisms.
+-   **Interaction:** Temperature inversely affects DO—warmer water holds less oxygen. DO also interacts with ORP, influencing redox reactions.
+-   **Spatial Patterns:** Headwaters typically have high DO and cooler temperatures; downstream, temperature may increase and DO may decrease due to respiration, decomposition, and nutrient loading.
+-   **Anthropogenic Impacts:** Nutrient enrichment, wastewater, and organic pollution can lower DO; damming and thermal discharges also affect temperature and oxygen.
+
+***Turbidity and Total Dissolved Solids (TDS)***
+
+-   **Turbidity:** Cloudiness of water caused by suspended particles. High turbidity reduces light penetration and affects photosynthesis.
+-   **TDS:** Measures dissolved ionic content (ppm), including salts and minerals. Influences osmoregulation and nutrient dynamics.
+-   **Interaction:** High turbidity can transport particulate-bound nutrients like phosphorus and nitrogen. TDS often rises alongside conductivity.
+-   **Spatial Patterns:** Low in headwaters, naturally increasing downstream.
+-   **Anthropogenic Impacts:** Construction, agriculture, urban runoff, and stormwater can increase both turbidity and TDS.
+
+***Conductivity and Specific Conductance***
+
+-   Measures water’s ability to carry an electrical current, reflecting dissolved ion content. Specific conductance is standardized to 25°C.
+
+-   **Interaction:** Linked to TDS, turbidity, and nutrient transport. High conductivity often accompanies urban and agricultural runoff.
+
+-   **Spatial Patterns:** Low in headwaters; increases downstream due to cumulative mineral and anthropogenic inputs.
+
+-   **Ecological Implications:** Excessive conductivity stresses freshwater species; natural geology can also influence baseline values.
+
+#### **Chemical Parameters**
+
+***pH***
+
+-   Measures hydrogen ion concentration (0–14 scale). Optimal range for freshwater ecosystems: 6.5–8.5.
+-   **Interaction:** Affects nutrient solubility (phosphate, ammonia) and toxicity of metals; influences buffering capacity with hardness and alkalinity.
+-   **Spatial Patterns:** Slightly acidic in headwaters draining forested or granite areas; neutral to slightly basic downstream.
+-   **Anthropogenic Impacts:** Acid rain, wastewater, agricultural lime, and algal activity can alter pH.
+
+#### **ORP (Oxidation-Reduction Potential)**
+
+-   Measures water’s tendency to gain or lose electrons (mV). Positive values indicate oxidizing conditions; negative values indicate reducing.
+-   **Interaction with DO:** Low DO reduces ORP, leading to anaerobic conditions; high DO increases ORP, supporting aerobic life.
+-   **Spatial Patterns:** High ORP in well-oxygenated headwaters; decreases downstream with organic matter and nutrient loading.
+-   **Anthropogenic Impacts:** Wastewater, agricultural runoff, and industrial effluents can lower ORP.
+
+***Total Hardness***
+
+-   Measures calcium and magnesium ions (ppm as CaCO₃).
+-   **Interaction:** Linked to buffering capacity and pH stability; affects nutrient availability and aquatic physiology.
+-   **Spatial Patterns:** Low in headwaters depending on geology; increases downstream from mineral-rich soils, tributaries, and human inputs.
+-   **Anthropogenic Impacts:** Agriculture (lime), urban runoff, and industrial discharges can elevate hardness.
+
+***Chloride***
+
+-   Cl⁻ concentration (ppm) from natural minerals, road salt, or wastewater.
+-   **Interaction:** Contributes to salinity and TDS; elevated chloride can stress freshwater organisms.
+-   **Spatial Patterns:** Low in headwaters; increases downstream and near estuaries.
+-   **Anthropogenic Impacts:** Road salt, urban runoff, wastewater, and industrial effluents.
+
+***Salinity***
+
+-   Total dissolved salts (ppt or PSU).
+
+```         
+**Interaction:** Closely linked to chloride; affects osmoregulation, species distribution, and TDS.
+```
+
+-   **Spatial Patterns:** Minimal in headwaters; increases toward estuaries and marine influence.
+
+-   **Anthropogenic Impacts:** Road salt, wastewater, and industrial inputs; natural geology and tidal intrusion also affect salinity.
+
+#### **Nutrients**
+
+***Nitrates and Ammonium***
+
+-   Nitrates (NO₃⁻) are oxidized, highly soluble nitrogen; ammonium (NH₄⁺) is reduced nitrogen from decomposition or waste. Units: mg/L.
+-   **Interaction:** Contribute to TDS and conductivity; often associated with turbidity when particulate-bound. Excess nitrogen can fuel algal blooms and oxygen depletion.
+-   **Spatial Patterns:** Low in headwaters; increases downstream with cumulative agricultural, urban, and wastewater inputs.
+-   **Critical Levels:** Nitrate \>10 mg/L or ammonium \>2 mg/L can be concerning. Natural processes like soil mineralization can elevate levels without pollution.
+
+***Phosphate***
+
+-   PO₄³⁻ is an essential nutrient, measured as dissolved orthophosphate (mg/L).
+-   **Interaction:** Linked to turbidity (particle-bound), TDS, conductivity, pH, ORP, and DO. Phosphate availability influences primary productivity and oxygen dynamics.
+-   **Spatial Patterns:** Low in headwaters; increases downstream from agriculture, urban areas, and tributary inputs.
+-   **Critical Levels:** \>0.1–0.3 mg/L is elevated; \>0.5 mg/L indicates risk of eutrophication. Natural leaching and decomposition can also raise levels temporarily.
+
+### The big research question
+
+In science, no single experiment answers everything. Each study is a small but meaningful piece of a much larger puzzle—a **“big research question”** that scientists are trying to understand over time. The hypothesis you develop is like a targeted investigation: it focuses on a specific factor or process. However, the results you collect contribute to a broader understanding of how ecosystems function, how human activities affect watersheds, or how natural processes interact with environmental change. Thinking about the big research question helps you see your work in context and understand why it matters beyond the individual measurement or site. You can think of it metaphorically as your puzzle piece—your careful data collection and analysis provide evidence that moves the collective understanding forward, answering part of a larger puzzle that no single study can solve alone.
+
+Let's find your big research question:
+
+-   **Start with your hypothesis:** Look at the specific process or trend you are testing (e.g., “nitrate concentrations are higher downstream of agricultural areas”).
+-   **Ask “Why does this matter?”:**
+    -   Consider ecological, environmental, or societal implications.
+
+    -   Example: Elevated nitrates downstream may affect algae growth, dissolved oxygen, or the health of coldwater fish populations.
+
+<!-- -->
+
+-   **Zoom out from the site-specific question:**
+
+    -   Think about the watershed as a whole.
+
+    -   Ask how your observation connects to broader patterns of water quality, nutrient cycling, or human impacts on rivers.
+
+<!-- -->
+
+-   **Identify gaps in understanding:** - Consider what is currently known and unknown about these processes. - Example: “We know nutrient inputs can cause eutrophication, but how do nutrient levels change along the full length of a river system from headwaters to estuary?”
+
+<!-- -->
+
+-   **Formulate a potential big research question:**
+
+```         
+-    It should be broader than your specific hypothesis.
+
+-    Example: “How do land use and human activities across an entire watershed influence water quality and ecosystem health from headwaters to the river mouth?"
+```
+
+-   **Reflect on the connection:**
+
+    -   Which picture are you adding a missing puzzle piece to?
+
+    -   Which larger body of knowledge are you helping to build with your study?
+
+::: {.callout-tip title="Give it a try"}
+Formulate your "big research question".
+
+Then, use your big research question to justify why your study is worth the time and effort (e.g. why should somebody fund you to do this? What information will they gain? How could it be applied?)
+:::
+
+## Generate your data
+
+### Study area
+
+The study is designed to evaluate **longitudinal patterns in water quality**, identify potential sources of chemical or nutrient inputs, and explore how both natural and anthropogenic factors influence ecosystem health across multiple spatial scales. This allows us to look at two gradients and identify interactions among variables and connections between local measurements and broader watershed processes.
+
+The study is designed to describe water quality along two interconnected watersheds in southern New Hampshire and northeastern Massachusetts: the **South Branch of the Piscataquog River** and the **Merrimack River**, from headwaters to the ocean.
+
+-   In the **South Branch of the Piscataquog**, sampling begins at **Rand Brook in Francestown**, a small tributary representing a relatively pristine headwater site. Further downstream, samples were collected at the **Lyndeboro Conservation Area**, **Howe Bridge**, **New Boston**, and **Rotary Park in Goffstown**, which collectively capture areas where approximately 90% of the watershed flows past, integrating effects from forested, agricultural, and suburban landscapes. The final Piscataquog site, **West Junior/ Deb Softball Fields in Manchester**, is located just upstream of its confluence with the Merrimack River, representing a more developed, downstream environment.
+-   In the **Merrimack River**, sampling begins at **Delta Dental Stadium**, a few miles upstream of where the Piscataquog joins the river, and continues downstream at **Bedford Heritage Trail**, **Moore’s Falls Conservation Area (Litchfield, NH)**, **Merrill Park (Hudson, NH)**, **Lowell Heritage State Park (Lowell, MA)**, **Pemberton Park (Lawrence, MA)**, **Pines Recreation Area (Groveland, MA)**, and finally **Deer Island (Amesbury, MA)** at the river’s outlet to the Atlantic Ocean.
+
+This sequence of sites was chosen to capture the cumulative influence of urban, suburban, and natural landscapes on the river’s water quality, as well as the transition from freshwater to estuarine conditions.
+
+::: {.callout-tip title="Give it a try"}
+Create a small sketch that shows the study area to help you visualize potential interactions and patterns.
+:::
+
+### Sampling
+
+At each study site, water samples were collected for laboratory analysis, and in situ measurements were taken using a **multiparameter water quality probe**. The water samples were used to determine nutrient concentrations, including chloride, nitrate, ammonium, phosphate, and total hardness while the probe provided real-time measurements of several physical and chemical parameters. These included **temperature, dissolved oxygen (DO), pH, oxidation-reduction potential (ORP), specific conductance, total dissolved solids (TDS), and salinity**. Sampling was conducted consistently at each location to ensure that comparisons along the watershed, from headwaters to the river outlet, accurately reflect longitudinal patterns in water quality.
+
+## Collect your data
+
+Collecting both water samples and probe measurements at the same locations allows for a comprehensive assessment of water quality, linking nutrient data with the broader physical and chemical context of each site.
+
+You will analyze the water samples assigned to you to determine concentrations of **nitrate, ammonium, phosphate, chloride, and total hardness**. Use the chemical testing kits provided for each parameter, carefully following the instructions to prepare your samples, apply reagents, and develop the color reactions. Measure the concentrations using **both the reference color sets and, where applicable, a spectrophotometer** to obtain precise readings. Record all measurements on the **data sheets provided**, making sure to include the site, parameter, and units for each observation. Accurate and consistent data recording is essential, as your results will be used to compare water quality across the watershed. Following the same procedure at each site ensures that any differences you observe reflect real variations in water quality rather than experimental error.
+
+::: {.callout-tip title="Give it a try"}
+Carefully follow the instructions for each test kit and record your data as instructed.
+:::
+
+## Analyze your data
+
+Once you have collected all of your measurements, it is time to explore the data using **visualizations and summary statistics**. Since we do not have replicate measurements for each site, you will not be able to perform statistical tests for significant differences. However, calculating **summary statistics** and creating clear plots will help you interpret patterns across sites and watersheds.
+
+#### **Step 1: Identify Data Types**
+
+1.  Review each parameter in your dataset.
+
+2.  Determine if the parameter is **continuous** (numeric values that can take any value within a range, e.g., temperature, nitrate concentration) or **categorical** (grouped or discrete values, e.g., site names, watershed).
+
+3.  Based on the data type, choose an appropriate plot:
+
+    -   **Continuous data over a gradient or sequence of sites:** Line plot or scatter plot.
+    -   **Categorical comparisons (e.g., watershed averages):** Bar plot.
+    -   **Multiple continuous variables to explore relationships:** Scatter plot with one variable on the x-axis and the other on the y-axis.
+
+#### **Step 2: Calculate Summary Statistics in Google Sheets**
+
+You will calculate measures of **central tendency** (mean, median) and **variability** (range, standard deviation) for each parameter across the dataset. Follow these steps:
+
+1.  Open your dataset in **Google Sheets**.
+
+2.  Label columns clearly for each parameter and site.
+
+3.  **Calculate the mean:**
+
+    -   Select an empty cell.
+
+    -   Enter `=AVERAGE(range)` where `range` is the cells containing the values for a parameter.
+
+4.  **Calculate the median:**
+
+    -   Select and empty cell
+    -   Enter `=MEDIAN(range)` in an empty cell.
+
+5.  **Calculate the standard deviation:**
+
+```         
+-    Select and empty cell
+-    Enter `=STDEV(range)` in an empty cell.
+```
+
+6.  **Calculate the range:**
+
+```         
+-    Select an empty cell
+-    Enter `=MAX(range)-MIN(range)` in an empty cell.
+```
+
+7.  Repeat steps 3–6 **for the dataset as a whole** and then **separately for each watershed system** (South Branch Piscataquog and Merrimack River).
+
+#### **Step 3: Create Visualizations in Google Sheets**
+
+1.  Highlight the data you want to plot.
+2.  Click **Insert → Chart**.
+3.  In the Chart Editor, indicate your data range, then choose the chart type appropriate for your data.
+4.  Label axes clearly and include units. Add a legend if comparing multiple watersheds or parameters.
+5.  Use these plots to look for trends along the watershed, differences between headwaters and downstream sites, and correlations between parameters.
+
+## Describe and interpret your results
+
+### Describe your results
+
+Identify the components of your results:
+
+You have looked at three different parameters. For each parameter you will want to describe the following:
+
+-   summary statistics
+-   spatial trends: two watersheds + whole picture
+
+For each component identify the broad trend and notable highlights. Your written description should give context to your results as you describe the patterns (“increased”, “wider”, “smaller”). You can reference the [The Academic Phrasebank](https://www.phrasebank.manchester.ac.uk/) for additional phrases that can be helpful.
+
+Develop a narrative that will guide the reader through your results. This is called “lowering the cognitive burden” i.e. how much they have to think for themselves vs you making the results easily accessible and understandable.
+
+::: {.callout-tip title="Give it a try"}
+Describe your summary statistics and your results related to your hypothesis. Remember that at this point you are just describing them, you are not interpreting them.
+:::
+
+### Interpret and discuss your results
+
+So far you have only **described** your results. Now it is time to **interpret** them.
+
+This means that you need to place them back in to the context of your hypothesis and determine whether they support your hypothesis or not of if you cannot come to a definitive conclusion.
+
+A good way to do this is to summarize your key findings in a few sentences and then make a clear statement about how they related to your original hypothesis. You can follow the fill-in-the-blank-formula below.
+
+> In this study, I investigated \[broad question asked + specific hypothesis tested\]. To achieve this, I \[specific data set + analysis used\]. I found that \[key results\] which \[statement about how this does or does not support your hypothesis\].
+
+What your discussion looks like will depend on whether or not your results support your hypothesis. Think of this as discussing your results in the context of your **specific research question** for the study.
+
+If your results **support** your hypothesis, you will want to elaborate on *how* they support your hypothesis. A good way to do this is to use the same break down of components you used for your results and for each component demonstrate how it supports your hypothesis. You will want to go back to the “because” component of your hypotheses to use that same reasoning. Even if your results do support your hypothesis you should acknowledge other possible explanations - this is where your controls come into play.
+
+If your results **do not support** your hypothesis you will focus on what may have been incorrect or only partially correct about your reasoning for your initial hypothesis. You should still follow the same structure of your results, it can be helpful to contrast as “*we expected x, we found y - here is a possible explanation*”.
+
+Most typically you will have a bit of both, where certain aspects of your results support your hypothesis and others do not, in that case following the structure of your results and discussing each to show how it does/does not support your results, acknowledging constraints and other possible explanations will be the best way to structure your discussion.
+
+::: {.callout-tip title="Give it a try"}
+**Interpret your results**. Focus just on your specific question/hypothesis.
+:::
+
+Finally, you will want to discuss your results in the context of the “big research question” you presented in your opening paragraph.
+
+Here, you should consider the implications of your results in further the overall understanding of that “big question”: What do we know now that we didn’t know before? How do your results complement/contradict what we already know? Is there something unique about your specific location that makes your results stand out?
+
+This typically leads to considering next steps, this will include things like refining the methods you applied to the study at hand, expanding your geographic region or spatial/temporal resolution, or designing a study that will allow to you look at a specific aspect of your findings, frequently to make it more conclusive.
+
+::: {.callout-tip title="Give it a try"}
+**Discuss your results**. Connect your findings back to your big research question.
+:::
+
+## Communicate your findings

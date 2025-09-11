@@ -1,0 +1,19 @@
+# Exploring thermal regimes of our watershed
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+## Overview
+
+The objectives for this lab are to:
+
+
+
+ 

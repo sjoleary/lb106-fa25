@@ -13,11 +13,10 @@ book:
       chapters: 
         - A01_watershed.qmd
         - A02_streamflow.qmd
-        # - A03_biomes.qmd
-        # - A04_biomes.qmd
+        - A03_nutrients.qmd
+        - A04_thermal-regimes.qmd
 
-    
-   # - part: B_stream-health-macroinverts.qmd
+    - part: B_stream-health-macroinverts.qmd
       # chapters:
       #   - B01_exp-design.qmd
       #   - B02_methods.qmd
@@ -26,7 +25,7 @@ book:
       #   - B05_results.qmd
       #   - B06_report_with-answers.qmd
         
-   # -  part: C_microplastics.qmd
+    -  part: C_microplastics.qmd
       # chapters:
         # - C01_question.qmd
         # - C02_generate.qmd
