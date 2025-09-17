@@ -4554,6 +4554,12 @@ vertical-align: -.125em;
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction to data visualization</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./D04_descript-stats.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Introduction to summary statistics</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -4842,11 +4848,9 @@ Give it a try
 <p><strong><em>Salinity</em></strong></p>
 <ul>
 <li>Total dissolved salts (ppt or PSU).</li>
-</ul>
-<pre><code>**Interaction:** Closely linked to chloride; affects osmoregulation, species distribution, and TDS.</code></pre>
-<ul>
-<li><p><strong>Spatial Patterns:</strong> Minimal in headwaters; increases toward estuaries and marine influence.</p></li>
-<li><p><strong>Anthropogenic Impacts:</strong> Road salt, wastewater, and industrial inputs; natural geology and tidal intrusion also affect salinity.</p></li>
+<li><strong>Interaction:</strong> Closely linked to chloride; affects osmoregulation, species distribution, and TDS.</li>
+<li><strong>Spatial Patterns:</strong> Minimal in headwaters; increases toward estuaries and marine influence.</li>
+<li><strong>Anthropogenic Impacts:</strong> Road salt, wastewater, and industrial inputs; natural geology and tidal intrusion also affect salinity.</li>
 </ul>
 </section>
 <section id="nutrients" class="level4" data-number="4.3.1.4">
@@ -4875,34 +4879,22 @@ Give it a try
 <li><strong>Start with your hypothesis:</strong> Look at the specific process or trend you are testing (e.g., “nitrate concentrations are higher downstream of agricultural areas”).</li>
 <li><strong>Ask “Why does this matter?”:</strong>
 <ul>
-<li><p>Consider ecological, environmental, or societal implications.</p></li>
-<li><p>Example: Elevated nitrates downstream may affect algae growth, dissolved oxygen, or the health of coldwater fish populations.</p></li>
+<li>Consider ecological, environmental, or societal implications.</li>
+<li>Example: Elevated nitrates downstream may affect algae growth, dissolved oxygen, or the health of coldwater fish populations.</li>
 </ul></li>
-</ul>
-<!-- -->
+<li><strong>Zoom out from the site-specific question:</strong>
 <ul>
-<li><p><strong>Zoom out from the site-specific question:</strong></p>
-<ul>
-<li><p>Think about the watershed as a whole.</p></li>
-<li><p>Ask how your observation connects to broader patterns of water quality, nutrient cycling, or human impacts on rivers.</p></li>
+<li>Think about the watershed as a whole.</li>
+<li>Ask how your observation connects to broader patterns of water quality, nutrient cycling, or human impacts on rivers.</li>
 </ul></li>
-</ul>
-<!-- -->
-<ul>
-<li><strong>Identify gaps in understanding:</strong> - Consider what is currently known and unknown about these processes. - Example: “We know nutrient inputs can cause eutrophication, but how do nutrient levels change along the full length of a river system from headwaters to estuary?”</li>
-</ul>
-<!-- -->
-<ul>
+<li><strong>Identify gaps in understanding:</strong> Consider what is currently known and unknown about these processes, e.g.&nbsp;“We know nutrient inputs can cause eutrophication, but how do nutrient levels change along the full length of a river system from headwaters to estuary?”</li>
 <li><strong>Formulate a potential big research question:</strong></li>
-</ul>
-<pre><code>-    It should be broader than your specific hypothesis.
-
--    Example: “How do land use and human activities across an entire watershed influence water quality and ecosystem health from headwaters to the river mouth?"</code></pre>
+<li>It should be broader than your specific hypothesis.</li>
+<li>Example: “How do land use and human activities across an entire watershed influence water quality and ecosystem health from headwaters to the river mouth?”</li>
+<li><strong>Reflect on the connection:</strong>
 <ul>
-<li><p><strong>Reflect on the connection:</strong></p>
-<ul>
-<li><p>Which picture are you adding a missing puzzle piece to?</p></li>
-<li><p>Which larger body of knowledge are you helping to build with your study?</p></li>
+<li>Which picture are you adding a missing puzzle piece to?</li>
+<li>Which larger body of knowledge are you helping to build with your study?</li>
 </ul></li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled" title="Give it a try">
@@ -4972,12 +4964,12 @@ Give it a try
 <section id="analyze-your-data" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="analyze-your-data"><span class="header-section-number">4.6</span> Analyze your data</h2>
 <p>Once you have collected all of your measurements, it is time to explore the data using <strong>visualizations and summary statistics</strong>. Since we do not have replicate measurements for each site, you will not be able to perform statistical tests for significant differences. However, calculating <strong>summary statistics</strong> and creating clear plots will help you interpret patterns across sites and watersheds.</p>
-<section id="step-1-identify-data-types" class="level4" data-number="4.6.0.1">
-<h4 data-number="4.6.0.1" class="anchored" data-anchor-id="step-1-identify-data-types"><span class="header-section-number">4.6.0.1</span> <strong>Step 1: Identify Data Types</strong></h4>
+<section id="identify-data-types" class="level3" data-number="4.6.1">
+<h3 data-number="4.6.1" class="anchored" data-anchor-id="identify-data-types"><span class="header-section-number">4.6.1</span> Identify Data Types</h3>
 <ol type="1">
-<li><p>Review each parameter in your dataset.</p></li>
-<li><p>Determine if the parameter is <strong>continuous</strong> (numeric values that can take any value within a range, e.g., temperature, nitrate concentration) or <strong>categorical</strong> (grouped or discrete values, e.g., site names, watershed).</p></li>
-<li><p>Based on the data type, choose an appropriate plot:</p>
+<li>Review each parameter in your dataset.</li>
+<li>Determine if the parameter is <strong>continuous</strong> (numeric values that can take any value within a range, e.g., temperature, nitrate concentration) or <strong>categorical</strong> (grouped or discrete values, e.g., site names, watershed).</li>
+<li>Based on the data type, choose an appropriate plot:
 <ul>
 <li><strong>Continuous data over a gradient or sequence of sites:</strong> Line plot or scatter plot.</li>
 <li><strong>Categorical comparisons (e.g., watershed averages):</strong> Bar plot.</li>
@@ -4985,37 +4977,41 @@ Give it a try
 </ul></li>
 </ol>
 </section>
-<section id="step-2-calculate-summary-statistics-in-google-sheets" class="level4" data-number="4.6.0.2">
-<h4 data-number="4.6.0.2" class="anchored" data-anchor-id="step-2-calculate-summary-statistics-in-google-sheets"><span class="header-section-number">4.6.0.2</span> <strong>Step 2: Calculate Summary Statistics in Google Sheets</strong></h4>
+<section id="calculate-summary-statistics-in-google-sheets" class="level3" data-number="4.6.2">
+<h3 data-number="4.6.2" class="anchored" data-anchor-id="calculate-summary-statistics-in-google-sheets"><span class="header-section-number">4.6.2</span> Calculate Summary Statistics in Google Sheets</h3>
 <p>You will calculate measures of <strong>central tendency</strong> (mean, median) and <strong>variability</strong> (range, standard deviation) for each parameter across the dataset. Follow these steps:</p>
 <ol type="1">
-<li><p>Open your dataset in <strong>Google Sheets</strong>.</p></li>
-<li><p>Label columns clearly for each parameter and site.</p></li>
-<li><p><strong>Calculate the mean:</strong></p>
+<li>Open your dataset in <strong>Google Sheets</strong>.</li>
+<li>Label columns clearly for each parameter and site.</li>
+<li><strong>Calculate the mean:</strong>
 <ul>
-<li><p>Select an empty cell.</p></li>
-<li><p>Enter <code>=AVERAGE(range)</code> where <code>range</code> is the cells containing the values for a parameter.</p></li>
+<li>Select an empty cell.</li>
+<li>Enter <code>=AVERAGE(range)</code> where <code>range</code> is the cells containing the values for a parameter.</li>
 </ul></li>
-<li><p><strong>Calculate the median:</strong></p>
+<li><strong>Calculate the median:</strong>
 <ul>
 <li>Select and empty cell</li>
 <li>Enter <code>=MEDIAN(range)</code> in an empty cell.</li>
 </ul></li>
-<li><p><strong>Calculate the standard deviation:</strong></p></li>
+<li><strong>Calculate the standard deviation:</strong></li>
 </ol>
-<pre><code>-    Select and empty cell
--    Enter `=STDEV(range)` in an empty cell.</code></pre>
+<ul>
+<li>Select and empty cell</li>
+<li>Enter <code>=STDEV(range)</code> in an empty cell.</li>
+</ul>
 <ol start="6" type="1">
 <li><strong>Calculate the range:</strong></li>
 </ol>
-<pre><code>-    Select an empty cell
--    Enter `=MAX(range)-MIN(range)` in an empty cell.</code></pre>
+<ul>
+<li>Select an empty cell</li>
+<li>Enter <code>=MAX(range)-MIN(range)</code> in an empty cell.</li>
+</ul>
 <ol start="7" type="1">
 <li>Repeat steps 3–6 <strong>for the dataset as a whole</strong> and then <strong>separately for each watershed system</strong> (South Branch Piscataquog and Merrimack River).</li>
 </ol>
 </section>
-<section id="step-3-create-visualizations-in-google-sheets" class="level4" data-number="4.6.0.3">
-<h4 data-number="4.6.0.3" class="anchored" data-anchor-id="step-3-create-visualizations-in-google-sheets"><span class="header-section-number">4.6.0.3</span> <strong>Step 3: Create Visualizations in Google Sheets</strong></h4>
+<section id="create-visualizations-in-google-sheets" class="level3" data-number="4.6.3">
+<h3 data-number="4.6.3" class="anchored" data-anchor-id="create-visualizations-in-google-sheets"><span class="header-section-number">4.6.3</span> Create Visualizations in Google Sheets</h3>
 <ol type="1">
 <li>Highlight the data you want to plot.</li>
 <li>Click <strong>Insert → Chart</strong>.</li>

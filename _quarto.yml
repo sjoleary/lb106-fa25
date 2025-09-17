@@ -39,7 +39,7 @@ book:
          - D01_experim-design.qmd
          - D02_data-management.qmd
          - D03_visualizations.qmd
-      #   - D04_descript-stats.qmd
+         - D04_descript-stats.qmd
       #   - D05_inferent-stats.qmd
       #   - D06_writing-report.qmd
       #   - D07_poster-design.qmd

@@ -1,0 +1,45 @@
+# Introduction to summary statistics
+
+```{r}
+#| label: set-up
+#| include: false
+
+# set options
+knitr::opts_chunk$set(tidy = FALSE)
+options(htmltools.dir.version = FALSE)
+
+```
+
+## Generating descriptive statistics using Google Sheets
+
+Here is your illustrated cheat sheet to generating summary (descriptive) statistics using Google Sheets
+
+### Research compendium set up
+
+![You should have an lb106 folder on your hard drive and two backup locations (OneDrive, Google Drive) from our initial digital literacy assignment this semester.](images/Screenshot 2025-09-04 082341.png){width="687"}
+
+![For each project we will create a folder, with subfolders to hold our data and results, including visualizations we make along the way. This is frequently referred to as a research compendium.](images/Screenshot 2025-09-17 111947.png){fig-align="center"}
+
+![Create sub folders by right clicking and selecting new folder.](images/Screenshot 2025-09-17 112220.png)
+![ProTip: keep everything lowercase so later you don't have to remember what/if you capitalized.](images/Screenshot 2025-09-17 112300.png)
+
+
+![Upload your data file into your data folder. The easiest way to do this it drag and drop it into the browser window with the data folder open. Wait for the upload to complete.](images/Screenshot 2025-09-17 113614.png)
+
+![Especially for lager data file use View > Freeze > 1 row to make sure that even as you are scrolling through the document you can still see the column headers. ](images/Screenshot 2025-09-17 112405.png)
+
+
+![If your first column or two contain e.g. sample information you can also freeze your first few columns for easier viewing..](images/Screenshot 2025-09-17 112441.png)
+
+
+![Set up your data set to add summary statistics in a way where it is easy for you to differentiate between your data and your results. To do this use the grid formating (1) to add a thick vertical line underneath your data. Then in the first column give that section a descriptive title so that you know what you did at a later point in time (2). You can determine the average by typing =AVERAGE(range) into the column underneath the raw data (3). You should adjust your range to include either the entire data set or just the subset you are interested in. Remember to use the decimal buttons (4) to set the reported significant digits to a sensible number.](images/Screenshot 2025-09-17 112637.png)
+
+
+![Continue adding a descriptive title in the first column and then programing your cells. Use =MEDIAN(range) to determine the median.](images/Screenshot 2025-09-17 112835.png)
+
+
+![Use =STDEV(range) to determine the standard deviation.](images/Screenshot 2025-09-17 113005.png)
+
+![Use =MAX(range) and =MIN(range) to determine the minimum and maximum values.](images/Screenshot 2025-09-17 113037.png)
+
+![You can calculate the range using =MAX(range)-MIN(range).](images/Screenshot 2025-09-17 113117.png)

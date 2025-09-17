@@ -252,13 +252,8 @@ Here is your cheatsheet with an overview of parameters, their interactions, idea
 ***Salinity***
 
 -   Total dissolved salts (ppt or PSU).
-
-```         
-**Interaction:** Closely linked to chloride; affects osmoregulation, species distribution, and TDS.
-```
-
+- **Interaction:** Closely linked to chloride; affects osmoregulation, species distribution, and TDS.
 -   **Spatial Patterns:** Minimal in headwaters; increases toward estuaries and marine influence.
-
 -   **Anthropogenic Impacts:** Road salt, wastewater, and industrial inputs; natural geology and tidal intrusion also affect salinity.
 
 #### **Nutrients**
@@ -286,35 +281,16 @@ Let's find your big research question:
 -   **Start with your hypothesis:** Look at the specific process or trend you are testing (e.g., “nitrate concentrations are higher downstream of agricultural areas”).
 -   **Ask “Why does this matter?”:**
     -   Consider ecological, environmental, or societal implications.
-
     -   Example: Elevated nitrates downstream may affect algae growth, dissolved oxygen, or the health of coldwater fish populations.
-
-<!-- -->
-
 -   **Zoom out from the site-specific question:**
-
     -   Think about the watershed as a whole.
-
     -   Ask how your observation connects to broader patterns of water quality, nutrient cycling, or human impacts on rivers.
-
-<!-- -->
-
--   **Identify gaps in understanding:** - Consider what is currently known and unknown about these processes. - Example: “We know nutrient inputs can cause eutrophication, but how do nutrient levels change along the full length of a river system from headwaters to estuary?”
-
-<!-- -->
-
+-   **Identify gaps in understanding:** Consider what is currently known and unknown about these processes, e.g. “We know nutrient inputs can cause eutrophication, but how do nutrient levels change along the full length of a river system from headwaters to estuary?”
 -   **Formulate a potential big research question:**
-
-```         
 -    It should be broader than your specific hypothesis.
-
 -    Example: “How do land use and human activities across an entire watershed influence water quality and ecosystem health from headwaters to the river mouth?"
-```
-
 -   **Reflect on the connection:**
-
     -   Which picture are you adding a missing puzzle piece to?
-
     -   Which larger body of knowledge are you helping to build with your study?
 
 ::: {.callout-tip title="Give it a try"}
@@ -358,54 +334,36 @@ Carefully follow the instructions for each test kit and record your data as inst
 
 Once you have collected all of your measurements, it is time to explore the data using **visualizations and summary statistics**. Since we do not have replicate measurements for each site, you will not be able to perform statistical tests for significant differences. However, calculating **summary statistics** and creating clear plots will help you interpret patterns across sites and watersheds.
 
-#### **Step 1: Identify Data Types**
+### Identify Data Types
 
 1.  Review each parameter in your dataset.
-
 2.  Determine if the parameter is **continuous** (numeric values that can take any value within a range, e.g., temperature, nitrate concentration) or **categorical** (grouped or discrete values, e.g., site names, watershed).
-
 3.  Based on the data type, choose an appropriate plot:
-
     -   **Continuous data over a gradient or sequence of sites:** Line plot or scatter plot.
     -   **Categorical comparisons (e.g., watershed averages):** Bar plot.
     -   **Multiple continuous variables to explore relationships:** Scatter plot with one variable on the x-axis and the other on the y-axis.
 
-#### **Step 2: Calculate Summary Statistics in Google Sheets**
+### Calculate Summary Statistics in Google Sheets
 
 You will calculate measures of **central tendency** (mean, median) and **variability** (range, standard deviation) for each parameter across the dataset. Follow these steps:
 
 1.  Open your dataset in **Google Sheets**.
-
 2.  Label columns clearly for each parameter and site.
-
 3.  **Calculate the mean:**
-
     -   Select an empty cell.
-
     -   Enter `=AVERAGE(range)` where `range` is the cells containing the values for a parameter.
-
 4.  **Calculate the median:**
-
     -   Select and empty cell
     -   Enter `=MEDIAN(range)` in an empty cell.
-
 5.  **Calculate the standard deviation:**
-
-```         
 -    Select and empty cell
 -    Enter `=STDEV(range)` in an empty cell.
-```
-
 6.  **Calculate the range:**
-
-```         
 -    Select an empty cell
 -    Enter `=MAX(range)-MIN(range)` in an empty cell.
-```
-
 7.  Repeat steps 3–6 **for the dataset as a whole** and then **separately for each watershed system** (South Branch Piscataquog and Merrimack River).
 
-#### **Step 3: Create Visualizations in Google Sheets**
+### Create Visualizations in Google Sheets
 
 1.  Highlight the data you want to plot.
 2.  Click **Insert → Chart**.
@@ -429,7 +387,9 @@ For each component identify the broad trend and notable highlights. Your written
 Develop a narrative that will guide the reader through your results. This is called “lowering the cognitive burden” i.e. how much they have to think for themselves vs you making the results easily accessible and understandable.
 
 ::: {.callout-tip title="Give it a try"}
+
 Describe your summary statistics and your results related to your hypothesis. Remember that at this point you are just describing them, you are not interpreting them.
+
 :::
 
 ### Interpret and discuss your results
@@ -451,7 +411,9 @@ If your results **do not support** your hypothesis you will focus on what may ha
 Most typically you will have a bit of both, where certain aspects of your results support your hypothesis and others do not, in that case following the structure of your results and discussing each to show how it does/does not support your results, acknowledging constraints and other possible explanations will be the best way to structure your discussion.
 
 ::: {.callout-tip title="Give it a try"}
+
 **Interpret your results**. Focus just on your specific question/hypothesis.
+
 :::
 
 Finally, you will want to discuss your results in the context of the “big research question” you presented in your opening paragraph.
@@ -461,7 +423,9 @@ Here, you should consider the implications of your results in further the overal
 This typically leads to considering next steps, this will include things like refining the methods you applied to the study at hand, expanding your geographic region or spatial/temporal resolution, or designing a study that will allow to you look at a specific aspect of your findings, frequently to make it more conclusive.
 
 ::: {.callout-tip title="Give it a try"}
+
 **Discuss your results**. Connect your findings back to your big research question.
+
 :::
 
 ## Communicate your findings
